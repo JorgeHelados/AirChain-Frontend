@@ -1,14 +1,27 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../Style/header.css';
+import logo from '../Images/logo.png';
 
 const Header = () => {
+  const history = useNavigate();
+
+  const handleLoginClick = () => {
+    history.push('/login');
+  };
   return (
-    <header>
-      <h1>Mi Aplicación React</h1>
+    <header className="header">
+      <div className="logo">
+        <img src={logo} alt="Logo" />
+      </div>
       <nav>
-        <ul>
+        <ul className="nav-links">
           <li><a href="/">Inicio</a></li>
-          <li><a href="/about">Acerca de</a></li>
-          <li><a href="/contact">Contacto</a></li>
+          <li><a href="/acerca_de">Acerca de</a></li>
+          <li><a href="/contacto">Contacto</a></li>
+          <li>
+            <a className="login-button" href="/login">Inicia Sesión</a>
+          </li>
         </ul>
       </nav>
     </header>

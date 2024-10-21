@@ -1,0 +1,29 @@
+  .terminos-page {
+    background-color: var(--negro);
+    margin: 0;
+  }
+  
+  .terminos-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--blanco);
+    color: var(--gris);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .terminos-page .terminos-container h1,
+  .terminos-page .terminos-container h2 {
+    color: var(--principal);
+  }
+  
+  .terminos-page .terminos-container p {
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  
+  .terminos-page .terminos-container ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
