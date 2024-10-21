@@ -1,0 +1,76 @@
+.contacto-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background-image: url('../Images/parque.jpg'); /* Ruta a la imagen */
+    background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+  }
+
+  .contacto-container::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    background-color: rgba(36, 36, 36, 0.75); /* Color de fondo */
+  }
+
+  .contacto-box {
+    position: relative; /* Necesario para que el contenido esté por encima de la capa */
+    z-index: 2; /* Asegura que la caja de register esté por encima de la capa */
+    background-color: var(--negro);
+    padding: 2rem 2rem;
+    box-shadow: 0px 4px 12px var(--gris);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    width: 300px; /* Ancho de la caja */
+    text-align: center; /* Centrar el texto */
+  }
+  
+  h2 {
+    color: var(--blanco);
+    font-size: 2rem;
+    margin: -0.5rem 0 0.3rem 0; /* Margen superior e inferior */
+  }
+
+  input {
+    margin: 0.7rem 0;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid var(--blanco);
+    border-radius: 4px;
+  }
+
+  textarea{
+    margin: 0.7rem 0 1.4rem 0;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid var(--blanco);
+    border-radius: 4px;
+    height: 150px;
+    resize: none;
+  }
+  
+  button {
+    padding: 0.7rem;
+    font-size: 1rem;
+    color: var(--blanco);
+    background-color: var(--principal);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: var(--secundario);
+  }
+  
+  @media (max-width: 400px) {
+    .login-box {
+      width: 70%;
+    }
+  }
+  

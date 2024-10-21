@@ -5,7 +5,7 @@ function App() {
 
     useEffect(() => {
         const fetchData = () => {
-            fetch('http://localhost:4000/api/medicion') // Enlace de localhost con la conexión
+            fetch('http://localhost:4000/') // Enlace de localhost con la conexión
                 .then(response => response.json())
                 .then(data => setUltimoValor(data.cantidad))
                 .catch(error => console.error('Error fetching data:', error));

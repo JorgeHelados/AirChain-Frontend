@@ -1,0 +1,88 @@
+  .register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background-image: url('../Images/parque.jpg'); /* Ruta a la imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .register-container::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    background-color: rgba(36, 36, 36, 0.75); /* Color sobre la imagen */
+  }
+  
+  .register-box {
+    position: relative;
+    z-index: 2;
+    background-color: var(--negro);
+    padding: 2rem 2rem;
+    box-shadow: 0px 4px 12px var(--gris);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    text-align: center;
+  }
+  
+  h2 {
+    color: #f4f4f4;
+    font-size: 2rem;
+    margin: -0.5rem 0 0.3rem 0; /* Margen superior e inferior */
+  }
+
+  input {
+    margin: 0.7rem 0;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid var(--blanco);
+    border-radius: 4px;
+  }
+  
+  button {
+    padding: 0.7rem;
+    font-size: 1rem;
+    color: var(--blanco);
+    background-color: var(--principal);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: var(--secundario);
+  }
+  
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    margin: -0.3rem 0 0.4rem 0;
+    color: var(--blanco);
+    font-size: small;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.checkbox-container .terms_and_conditions {
+    text-decoration: none;
+    color: var(--blanco);
+    font-size: small;
+}
+
+.terms_and_conditions:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 400px) {
+    .register-box {
+      width: 70%;
+    }
+  }
+  
