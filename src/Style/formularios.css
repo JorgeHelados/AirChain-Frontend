@@ -1,23 +1,23 @@
-  .login-container {
+.form-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 80vh;
     background-image: url('../Images/parque.jpg'); /* Ruta a la imagen */
-    background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
-    background-position: center; /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
-  .login-container::before{
+  .form-container::before{
     content: '';
     position: absolute;
     width: 100%;
     height: 80%;
-    background-color: rgba(36, 36, 36, 0.75); /* Color de fondo */
+    background-color: rgba(36, 36, 36, 0.75); /* Color de fondo en este caso #333333 */
   }
 
-  .login-box {
+  .form-box {
     position: relative; /* Necesario para que el contenido esté por encima de la capa */
     z-index: 2; /* Asegura que la caja de register esté por encima de la capa */
     background-color: var(--negro);
@@ -26,17 +26,17 @@
     border-radius: 16px;
     display: flex;
     flex-direction: column;
-    width: 300px; /* Ancho de la caja */
-    text-align: center; /* Centrar el texto */
+    width: 300px;
+    text-align: center; 
   }
-  
-  h2 {
+
+  .h2-form {
     color: var(--blanco);
     font-size: 2rem;
     margin: -0.5rem 0 0.3rem 0; /* Margen superior e inferior */
   }
 
-  input {
+  .input-form {
     margin: 0.7rem 0;
     padding: 0.5rem;
     font-size: 1rem;
@@ -44,7 +44,7 @@
     border-radius: 4px;
   }
   
-  button {
+  .button-form {
     padding: 0.7rem;
     font-size: 1rem;
     color: var(--blanco);
@@ -54,10 +54,22 @@
     cursor: pointer;
   }
   
-  button:hover {
+  .button-form:hover {
     background-color: var(--secundario);
   }
-  
+
+  /* INDIVIDUAL DE CONTACTO */
+  .textarea-form{
+    margin: 0.7rem 0 1.4rem 0;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid var(--blanco);
+    border-radius: 4px;
+    height: 150px;
+    resize: none;
+  }
+
+  /* INDIVIDUAL DE LOGIN */
   .forgot-password {
     color: var(--principal);
     text-decoration: none;
@@ -68,10 +80,34 @@
   .forgot-password:hover {
     text-decoration: underline;
   }
-  
+
+  /* INDIVIDUAL DE REGISTER */
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    margin: -0.3rem 0 0.4rem 0;
+    color: var(--blanco);
+    font-size: small;
+  }
+
+  .checkbox-container input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+  .checkbox-container .terms_and_conditions {
+    text-decoration: none;
+    color: var(--blanco);
+    font-size: small;
+  }
+
+  .terms_and_conditions:hover {
+    text-decoration: underline;
+  }
+
+
+  /* RESPONSIVE */
   @media (max-width: 400px) {
     .login-box {
       width: 70%;
     }
   }
-  

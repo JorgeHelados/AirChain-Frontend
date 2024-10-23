@@ -1,9 +1,9 @@
-.acerca-de-page {
+.info-page {
     background-color: var(--negro);
     margin: 0;
   }
 
-.acerca-de-container {
+.info-container {
     padding: 20px;
     max-width: 800px;
     margin: 0 auto;
@@ -13,12 +13,13 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
-  .acerca-de-container h1,
-  .acerca-de-container h2 {
-    color: #00ccdd; /* Color principal */
+  .info-container h1,
+  .info-container h2 {
+    color: var(--principal); /* Color principal */
   }
   
-  .acerca-de-container p {
+  .info-container p {
     line-height: 1.6;
     margin-bottom: 16px;
+    text-align: justify;
   }
