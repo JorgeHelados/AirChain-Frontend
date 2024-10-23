@@ -92,7 +92,7 @@
 
   .checkbox-container input[type="checkbox"] {
     margin-right: 5px;
-}
+  }
 
   .checkbox-container .terms_and_conditions {
     text-decoration: none;
@@ -102,6 +102,11 @@
 
   .terms_and_conditions:hover {
     text-decoration: underline;
+  }
+
+  .error-message {
+    color: red;
+    margin-bottom: 15px;
   }
 
 
