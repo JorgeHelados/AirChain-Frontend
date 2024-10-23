@@ -27,52 +27,52 @@ function Register() {
 
     return (
         <div className="form-container">
-            <div className="form-box">
-                <h2>Regístrate</h2>
-                <form onSubmit={handleRegister}>
-                    <input
-                        type="text"
-                        placeholder="Nombre"
-                        className='input-form'
-                        value={nombre}
-                        onChange={(e) => setNombre(e.target.value)}
-                        required
-                    />
-                    <input
-                        type="text"
-                        placeholder="Apellido"
-                        className='input-form'
-                        value={apellido}
-                        onChange={(e) => setApellido(e.target.value)}
-                        required
-                    />
-                    <input
-                        type="email"
-                        placeholder="Correo electrónico"
-                        className='input-form'
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
-                    <input
-                        type="password"
-                        placeholder="Contraseña"
-                        className='input-form'
-                        value={contrasenya}
-                        onChange={(e) => setContrasenya(e.target.value)}
-                        required
-                    />
-                    <div className="checkbox-container">
-                        <input type="checkbox" required />
-                        Acepto los&nbsp;
-                        <a href="/terminos" className="terms_and_conditions">
-                            términos y condiciones
-                        </a>
-                    </div>
-                    {error && <p className="error-message">{error}</p>}
-                    <button type="submit">Registrarse</button>
-                </form>
-            </div>
+            <form onSubmit={handleRegister}>
+                <div className="form-box">
+                    <h2 className='h2-form'>Regístrate</h2>
+                        <input
+                            type="text"
+                            placeholder="Nombre"
+                            className='input-form'
+                            value={nombre}
+                            onChange={(e) => setNombre(e.target.value)}
+                            required
+                        />
+                        <input
+                            type="text"
+                            placeholder="Apellido"
+                            className='input-form'
+                            value={apellido}
+                            onChange={(e) => setApellido(e.target.value)}
+                            required
+                        />
+                        <input
+                            type="email"
+                            placeholder="Correo electrónico"
+                            className='input-form'
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
+                        <input
+                            type="password"
+                            placeholder="Contraseña"
+                            className='input-form'
+                            value={contrasenya}
+                            onChange={(e) => setContrasenya(e.target.value)}
+                            required
+                        />
+                        <div className="checkbox-container">
+                            <input type="checkbox" required />
+                            Acepto los&nbsp;
+                            <a href="/terminos" className="terms_and_conditions">
+                                términos y condiciones
+                            </a>
+                        </div>
+                        {error && <p className="error-message">{error}</p>}
+                        <button type="submit" className='button-form'>Registrarse</button>
+                </div>
+            </form>
         </div>
     );
 }
