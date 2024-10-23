@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../Style/login.css';
+import '../Style/formularios.css';
 import { iniciarSesion } from '../js/inicio.js'; // Asegúrate de que la ruta sea correcta
 
 function Login() {
@@ -27,13 +27,14 @@ function Login() {
     };
 
     return (
-        <div className="login-container">
-            <div className="login-box">
-                <h2>Inicia sesión</h2>
-                <form onSubmit={handleLogin}>
+        <div className="form-container">
+            <form onSubmit={handleLogin} className="form-forn">
+                <div className="form-box">  
+                    <h2 className='h2-form'>Inicia sesión</h2>
                     <input
                         type="email"
                         placeholder="Correo electrónico"
+                        className='input-form'
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
@@ -41,6 +42,7 @@ function Login() {
                     <input
                         type="password"
                         placeholder="Contraseña"
+                        className='input-form'
                         value={contrasenya}
                         onChange={(e) => setContrasenya(e.target.value)}
                         required
@@ -52,9 +54,9 @@ function Login() {
                     <a href="/register" className="forgot-password">
                         ¿No tienes cuenta? Regístrate
                     </a>
-                    <button type="submit">Iniciar sesión</button>
-                </form>
-            </div>
+                    <button type="submit" className='button-form'>Iniciar sesión</button>
+                </div>
+            </form>
         </div>
     );
 }
