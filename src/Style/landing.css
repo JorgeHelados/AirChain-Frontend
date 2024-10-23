@@ -1,0 +1,142 @@
+section {
+    padding: 50px;
+    text-align: center;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about-section, .how-section {
+    background-color: var(--negro);
+}
+
+.intro-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Capa oscura medio transparente */
+    z-index: 0;
+}
+
+.intro-content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    color: var(--principal);
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.landing-container p, .about-section p, .how-box p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--blanco);
+}
+
+.intro-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.intro-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.intro-button {
+    padding: 15px 30px; /* Aumenta el tamaño del botón */
+    font-size: 1.2rem; /* Aumenta el tamaño del texto del botón */
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--principal);
+    color: var(--blanco);
+}
+
+.intro-button:hover {
+    background-color: var(--secundario);
+}
+
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-section p {
+    color: var(--blanco);
+    text-align: justify;
+}
+
+.icon {
+    font-size: 3rem;
+    color: var(--blanco);
+}
+
+.how-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.how-box {
+    background-color: var(--gris);
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--principal);
+    color: var(--blanco);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.scroll-to-top:hover {
+    background-color: var(--secundario);
+}

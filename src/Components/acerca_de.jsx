@@ -1,10 +1,10 @@
 import React from 'react';
-import '../Style/acerca_de.css'; // Asegúrate de crear este archivo CSS
+import '../Style/informacion.css'; // Asegúrate de crear este archivo CSS
 
 const AcercaDe = () => {
   return (
-    <div className='acerca-de-page'>
-        <div className="acerca-de-container">
+    <div className='info-page'>
+        <div className="info-container">
             <h1>Quienes somos</h1>
             <p>
                 Nosotros somos AirChain, un nuevo startup moderno que busca ayudar a sus ciudadanos más vulnerables y a su vez hacer mediante el uso de tecnologías IOT, nuestras ciudades y parques más limpios y ecológicos mediante la colaboración entre todos los ciudadanos.

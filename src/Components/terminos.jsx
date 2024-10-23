@@ -1,10 +1,10 @@
 import React from 'react';
-import '../Style/terminos.css';
+import '../Style/informacion.css';
 
 const Terminos = () => {
   return (
-    <div className="terminos-page">
-      <div className="terminos-container">
+    <div className="info-page">
+      <div className="info-container">
         <h1>Términos y Condiciones de Uso</h1>
         <p>INFORMACIÓN RELEVANTE</p>
         <p>

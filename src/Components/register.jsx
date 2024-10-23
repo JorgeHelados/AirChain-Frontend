@@ -1,15 +1,15 @@
 import React from 'react';
-import '../Style/register.css';
+import '../Style/formularios.css';
 
 function Register() {
     return (
-        <div className="register-container">
-            <div className="register-box">
-                <h2>Regístrate</h2>
-                <input type="name" placeholder="Nombre" zz/>
-                <input type="surname" placeholder="Apellido" />
-                <input type="email" placeholder="Correo electrónico" />
-                <input type="password" placeholder="Contraseña" />
+        <div className="form-container">
+            <div className="form-box">
+                <h2 className='h2-form'>Regístrate</h2>
+                <input type="name" placeholder="Nombre" className='input-form'/>
+                <input type="surname" placeholder="Apellido" className='input-form'/>
+                <input type="email" placeholder="Correo electrónico" className='input-form'/>
+                <input type="password" placeholder="Contraseña" className='input-form'/>
                 <div className="checkbox-container">
                     <input type="checkbox" />
                     Acepto los&nbsp;
@@ -17,7 +17,7 @@ function Register() {
                         términos y condiciones
                     </a>
                 </div>
-                <button>Registrarse</button>
+                <button className='button-form'>Registrarse</button>
             </div>
         </div>
     );
