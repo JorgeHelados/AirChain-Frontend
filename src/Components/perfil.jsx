@@ -43,8 +43,8 @@ function Perfil() {
     };
 
     return (
-<<<<<<< Updated upstream
-        <div className="perfil-page profile-container">
+
+    <div className="perfil-page profile-container">
             <div className="profile-box">
                 <h2 className='h2-perfil'>Mi perfil</h2>
                 <div className='columns-box'>
@@ -82,53 +82,11 @@ function Perfil() {
                 <div className='columns-box'>
                     <div className='column-perfil'>
                         <button className='button-logout'>Cerrar sesión</button>
-=======
-        <div className="profile-container">
-            <div className="profile-box">
-                <h2 className='h2-form'>Mi perfil</h2>
-                <div className='columns-box'>
-                    <div className='column'>
-                        <input
-                            type="text"
-                            placeholder="Nombre"
-                            className='input-form'
-                            value={nombre}
-                            onChange={(e) => setNombre(e.target.value)}
-                        />
-                        <input
-                            type="text"
-                            placeholder="Apellido"
-                            className='input-form'
-                            value={apellidos}
-                            onChange={(e) => setApellidos(e.target.value)}
-                        />
-                        <button className='button-form' onClick={handleEditarPerfil}>
-                            Editar perfil
-                        </button>
-                    </div>
-                    <div className='column'>
-                        <input
-                            type="tel"
-                            placeholder="Número de teléfono"
-                            className='input-form'
-                            value={telefono}
-                            onChange={(e) => setTelefono(e.target.value)}
-                        />
-                        <input
-                            type="password"
-                            placeholder="Contraseña"
-                            className='input-form'
-                            value={contrasenya}
-                            onChange={(e) => setContrasenya(e.target.value)}
-                        />
-                        <button className='button-error'>
-                            Cerrar sesión
-                        </button>
->>>>>>> Stashed changes
                     </div>
                 </div>
             </div>
         </div>
+
     );
 }
 
