@@ -27,9 +27,9 @@ function Login() {
 
     return (
         <div className="form-container">
-            <div className="form-box">
-                <h2 className="h2-form" >Inicia sesión</h2>
-                <form onSubmit={handleLogin}>
+            <form onSubmit={handleLogin}>
+                <div className="form-box">
+                    <h2 className="h2-form" >Inicia sesión</h2>
                     <input className='input-form'
                         type="email"
                         placeholder="Correo electrónico"
@@ -52,8 +52,8 @@ function Login() {
                         ¿No tienes cuenta? Regístrate
                     </a>
                     <button className='button-form' type="submit">Iniciar sesión</button>
-                </form>
-            </div>
+               </div>
+            </form>
         </div>
     );
 }

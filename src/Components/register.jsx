@@ -31,11 +31,12 @@ function Register() {
 
     return (
         <div className="form-container">
-            <div className="form-box">
-                <h2 className='h2-form' >Regístrate</h2>
-                <form id="registerForm" onSubmit={handleRegister}>
+            <form id="registerForm" onSubmit={handleRegister}>
+                <div className="form-box">
+                    <h2 className='h2-form' >Regístrate</h2>
                     <input className='input-form' id="nombre" type="text" placeholder="Nombre" />
                     <input className='input-form' id="apellidos" type="text" placeholder="Apellido" />
+                    <input className='input-form' id="telefono" type="tel" placeholder="Número de teléfono" />
                     <input className='input-form' id="correo" type="email" placeholder="Correo electrónico" />
                     <input className='input-form' id="contrasenya" type="password" placeholder="Contraseña" />
                     <div className="checkbox-container">
@@ -46,8 +47,8 @@ function Register() {
                         </a>
                     </div>
                     <button lassName='button-form' type="submit">Registrarse</button>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     );
 }
