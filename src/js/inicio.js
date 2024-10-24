@@ -1,4 +1,4 @@
-const apiBaseUrl = 'http://192.168.1.28:4000/';
+const apiBaseUrl = 'http://192.168.128.173:4000/';
 
 // Función para iniciar sesión
 export async function iniciarSesion(nombre, contrasenya) {
