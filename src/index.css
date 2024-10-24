@@ -5,21 +5,23 @@
   --blanco: #f4f4f4;
   --negro: #242424;
   --gris: #333333;
+  --error: #ce0b0b;
+  --errorOscuro: #980909;
 }
 
 body {
   margin: 0;
-  font-family: comfortaa;
+  font-family: 'Comfortaa', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 button {
-  font-family: comfortaa;
+  font-family: 'Comfortaa', sans-serif;
 }
 
 input {
-  font-family: comfortaa;
+  font-family: 'Comfortaa', sans-serif;
 }
 
 code {

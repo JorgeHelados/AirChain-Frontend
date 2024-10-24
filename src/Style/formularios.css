@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     height: 80vh;
-    background-image: url('../Images/parque.jpg'); /* Ruta a la imagen */
+    background-image: url('../Images/parque.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -14,12 +14,12 @@
     position: absolute;
     width: 100%;
     height: 80%;
-    background-color: rgba(36, 36, 36, 0.75); /* Color de fondo en este caso #333333 */
+    background-color: rgba(36, 36, 36, 0.75); 
   }
 
   .form-box {
-    position: relative; /* Necesario para que el contenido esté por encima de la capa */
-    z-index: 2; /* Asegura que la caja de register esté por encima de la capa */
+    position: relative; 
+    z-index: 2; 
     background-color: var(--negro);
     padding: 2rem 2rem;
     box-shadow: 0px 4px 12px var(--gris);
@@ -33,7 +33,7 @@
   .h2-form {
     color: var(--blanco);
     font-size: 2rem;
-    margin: -0.5rem 0 0.3rem 0; /* Margen superior e inferior */
+    margin: -0.5rem 0 0.3rem 0;
   }
 
   .input-form {
@@ -58,7 +58,9 @@
     background-color: var(--secundario);
   }
 
+  /* ---------------------- */
   /* INDIVIDUAL DE CONTACTO */
+  /* ---------------------- */
   .textarea-form{
     margin: 0.7rem 0 1.4rem 0;
     padding: 0.5rem;
@@ -69,7 +71,9 @@
     resize: none;
   }
 
+  /* ------------------- */
   /* INDIVIDUAL DE LOGIN */
+  /* ------------------- */
   .forgot-password {
     color: var(--principal);
     text-decoration: none;
@@ -81,7 +85,9 @@
     text-decoration: underline;
   }
 
+  /* ---------------------- */
   /* INDIVIDUAL DE REGISTER */
+  /* ---------------------- */
   .checkbox-container {
     display: flex;
     align-items: center;
@@ -104,15 +110,91 @@
     text-decoration: underline;
   }
 
-  .error-message {
-    color: red;
-    margin-bottom: 15px;
+  /* ------------------------- */
+  /* INDIVIDUAL PERFIL USUARIO */
+  /* ------------------------- */
+  .profile-box {
+    background-color: var(--negro);
+    padding: 2rem;
+    box-shadow: 0px 4px 12px var(--gris);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    text-align: center; 
   }
 
+  .columns-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; 
+    gap: 2rem; 
+    width: 100%; 
+    max-width: 600px; 
+  }
 
+  .profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background-color: var(--gris);
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+    flex: 1; 
+  }
+
+  .button-error {
+    padding: 0.7rem;
+    font-size: 1rem;
+    color: var(--blanco);
+    background-color: var(--error);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .button-error:hover {
+    background-color: var(--errorOscuro);
+  }
+
+  /* ---------- */
   /* RESPONSIVE */
+  /* ---------- */
   @media (max-width: 400px) {
-    .login-box {
+    .form-box {
       width: 70%;
     }
+
+    .columns-box {
+      flex-direction: column; 
+      gap: 1rem; 
+      padding: 1rem; 
+      width: 90%; 
+    }
+
+    .profile-box {
+      padding: 1.5rem; 
+      width: 100%; 
+      max-width: none; 
+    }
+
+    .profile-container {
+      padding: 1rem; 
+    }
+
+    .column {
+      gap: 10px; 
+    }
+
+    .button-error {
+      font-size: 0.9rem; 
+      padding: 0.6rem;
+    }
   }
+
+  
