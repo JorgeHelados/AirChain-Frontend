@@ -1,7 +1,7 @@
 const apiBaseUrl = 'http://192.168.128.173:4000/';
 
 // Función para registrar un usuario
-export async function registrarUsuario(nombre, apellidos, correo, contrasenya) {
+export async function registrarUsuario(nombre, apellidos, correo, contrasenya, telefono) {
     try {
         const response = await fetch(`${apiBaseUrl}api/gases/usuarios`, {
             method: 'POST',
@@ -12,7 +12,8 @@ export async function registrarUsuario(nombre, apellidos, correo, contrasenya) {
                 nombre,
                 apellidos,
                 correo,
-                contrasenya
+                contrasenya,
+                telefono
             }),
         });
 

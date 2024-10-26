@@ -1,92 +1,139 @@
-
-import '../Style/perfil.css';
 import React, { useEffect, useState } from 'react';
-
-import { cargarDatosPerfil, actualizarPerfil } from '../js/miPerfil'; // Importar las funciones
-
+import '../Style/perfil.css';
+import { cargarDatosPerfil, actualizarNombreApellidos, actualizarTelefono, cambiarContrasena } from '../js/miPerfil';
 
 function Perfil() {
     const [nombre, setNombre] = useState('');
     const [apellidos, setApellidos] = useState('');
     const [telefono, setTelefono] = useState('');
-    const [contrasenya, setContrasenya] = useState('');
-    
-    // Simulación del correo del usuario, normalmente lo obtendrías del login o localStorage
-    const correoUsuario = "usuario@example.com";
+    const [contrasenaActual, setContrasenaActual] = useState('');
+    const [contrasenaNueva, setContrasenaNueva] = useState('');
 
-    // Cargar los datos del perfil al montar el componente
+    // Cargar datos del perfil al montar el componente
     useEffect(() => {
-        const obtenerDatosPerfil = async () => {
+        const cargarPerfil = async () => {
+            const correo = sessionStorage.getItem("usuarioCorreo");
+            console.log(correo);
+
+            if (!correo) {
+                alert("No has iniciado sesión");
+                window.location.href = "login";
+                return;
+            }
+
             try {
-                const datos = await cargarDatosPerfil(correoUsuario); // Llamar a la función para cargar los datos
-                setNombre(datos.Nombre);
-                setApellidos(datos.Apellidos);
-                setTelefono(datos.Telefono);
+                const data = await cargarDatosPerfil(correo);
+                console.log(data);
+                setNombre(data.Nombre);
+                setApellidos(data.Apellidos);
+                setTelefono(data.Telefono);
             } catch (error) {
-                console.error("Error al obtener los datos del perfil:", error);
+                console.error('Error al cargar los datos del perfil:', error);
             }
         };
 
-        obtenerDatosPerfil();
-    }, [correoUsuario]);
+        cargarPerfil();
+    }, []);
 
-    // Manejar la edición del perfil
-    const handleEditarPerfil = () => {
-        const datosPerfil = {
-            Nombre: nombre,
-            Apellidos: apellidos,
-            Telefono: telefono,
-            Contrasenya: contrasenya,
-        };
-
-        actualizarPerfil(correoUsuario, datosPerfil); // Llamar a la función para actualizar el perfil
+    const manejarActualizarNombre = () => {
+        const correo = sessionStorage.getItem("usuarioCorreo");
+        actualizarNombreApellidos(correo, nombre, apellidos, telefono);
     };
+
+
+    const manejarActualizarTelefono = () => {
+        console.log(telefono);
+        const correo = sessionStorage.getItem("usuarioCorreo");
+        actualizarTelefono(correo, telefono, nombre, apellidos);
+    };
+
+    const manejarCambioContrasena = () => {
+        const correo = sessionStorage.getItem("usuarioCorreo");
+        if (!contrasenaActual || !contrasenaNueva) {
+            alert("Debe llenar ambos campos de contraseña.");
+            return;
+        }
+        cambiarContrasena(correo, contrasenaActual, contrasenaNueva);
+    };
+
 
     return (
 
-    <div className="perfil-page profile-container">
+        <div className="perfil-page profile-container">
             <div className="profile-box">
                 <h2 className='h2-perfil'>Mi perfil</h2>
                 <div className='columns-box'>
                     <div className='column-perfil'>
                         <p className='p-perfil'>¿Has cambiado de nombre o apellidos?</p>
-                        <input type="text" placeholder="Nombre" className='perfil-input'/>
-                        <input type="text" placeholder="Apellidos" className='perfil-input'/>
+                        <input
+                            type="text" 
+                            placeholder="Nombre" 
+                            className='perfil-input' 
+                            value={nombre} 
+                            onChange={(e) => setNombre(e.target.value)}
+                         />
+                        <input
+                            type="text" 
+                            placeholder="Apellidos" 
+                            className='perfil-input' 
+                            value={apellidos} 
+                            onChange={(e) => setApellidos(e.target.value)}
+                         />
                     </div>
                     <div className='column-perfil'>
-                        <button className='button-perfil'>Editar nombre</button>
+                        <button className='button-perfil' onClick={manejarActualizarNombre}>Editar nombre</button>
                     </div>
                 </div>
 
                 <div className='columns-box'>
                     <div className='column-perfil'>
                         <p className='p-perfil'>¿Has cambiado de número de teléfono?</p>
-                        <input type="tel" placeholder="Numero de teléfono" className='perfil-input'/>
+                        <input
+                            type="tel" 
+                            placeholder="Numero de teléfono" 
+                            className='perfil-input' 
+                            value={telefono} 
+                            onChange={(e) => setTelefono(e.target.value)}
+                         />
                     </div>
                     <div className='column-perfil'>
-                        <button className='button-perfil'>Editar número de teléfono</button>
+                        <button className='button-perfil' onClick={manejarActualizarTelefono}>Editar número de teléfono</button>
                     </div>
                 </div>
 
                 <div className='columns-box'>
                     <div className='column-perfil'>
                         <p className='p-perfil'>Escriba primero su contraseña actual y posteriormente su nueva contraseña</p>
-                        <input type="password" placeholder="Contraseña Actual" className='perfil-input'/>
-                        <input type="password" placeholder="Contraseña Nueva" className='perfil-input'/>
+                        <input 
+                            type="password" 
+                            placeholder="Contraseña Actual" 
+                            className='perfil-input' 
+                            value={contrasenaActual} 
+                            onChange={(e) => setContrasenaActual(e.target.value)}
+                        />
+                        <input 
+                            type="password" 
+                            placeholder="Contraseña Nueva" 
+                            className='perfil-input' 
+                            value={contrasenaNueva} 
+                            onChange={(e) => setContrasenaNueva(e.target.value)}
+                        />
                     </div>
                     <div className='column-perfil'>
-                        <button className='button-perfil'>Editar contraseña</button>
+                        <button className='button-perfil' onClick={manejarCambioContrasena}>Editar contraseña</button>
                     </div>
                 </div>
 
                 <div className='columns-box'>
                     <div className='column-perfil'>
-                        <button className='button-logout'>Cerrar sesión</button>
+                        <button className='button-logout' onClick={() => {
+                            sessionStorage.removeItem("usuarioCorreo");
+                            window.location.href = "/login";
+                        }}>Cerrar sesión</button>
                     </div>
                 </div>
             </div>
         </div>
-
     );
 }
 

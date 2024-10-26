@@ -12,9 +12,10 @@ function Register() {
         const apellidos = document.getElementById('apellidos').value;
         const correo = document.getElementById('correo').value;
         const contrasenya = document.getElementById('contrasenya').value;
+        const telefono = document.getElementById('telefono').value;
 
         // Llamar a la función registrarUsuario con los valores del formulario
-        registrarUsuario(nombre, apellidos, correo, contrasenya)
+        registrarUsuario(nombre, apellidos, correo, contrasenya, telefono)
             .then(response => {
                 // Aquí puedes manejar lo que ocurre si el registro es exitoso
                 alert('Registro exitoso');
