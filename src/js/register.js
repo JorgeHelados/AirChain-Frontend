@@ -1,4 +1,4 @@
-const apiBaseUrl = 'http://192.168.128.173:4000/';
+const apiBaseUrl = 'http://192.168.233.173:4000/';
 
 // Función para registrar un usuario
 export async function registrarUsuario(nombre, apellidos, correo, contrasenya, telefono) {
