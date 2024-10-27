@@ -13,7 +13,7 @@ import Register from './Components/register';
 import Terminos from './Components/terminos';
 import AcercaDe from './Components/acerca_de';
 import Contacto from './Components/contacto';
-// import User from './Components/user';
+import User from './Components/user';
 import Perfil from './Components/perfil';
  
 import reportWebVitals from './reportWebVitals';
@@ -43,7 +43,7 @@ const MainApp = () => {
         <Route path="/acerca_de" element={<AcercaDe />} />
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/perfil" element={<Perfil />} /> 
-        <Route path="/user" element={<Landing />} /> 
+        <Route path="/user" element={<User />} /> 
       </Routes>
       <Footer />
     </>

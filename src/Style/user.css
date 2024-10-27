@@ -1,0 +1,64 @@
+/* user.css */
+
+.app-container {
+    background-color: var(--gris);
+    color: #00c3ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 78vh;
+}
+
+.content {
+    display: flex;
+    width: 90%;
+    gap: 20px;
+}
+
+.chart-container, .air-quality-container {
+    background-color: var(--negro);
+    border-radius: 10px;
+    width: 50%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chart-container {
+    background-color: var(--blanco);
+    padding: 30px;
+}
+
+.chart-container p {
+    text-align: center;
+    color: var(--gris);
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+
+.air-quality-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centrado vertical */
+    text-align: center;
+    height: 100%; /* Asegura que ocupe toda la altura disponible */
+    gap: 10px; /* Espacio entre los elementos */
+    min-height: 300px; /* Altura mínima para que el contenido esté centrado */
+}
+
+.air-quality-container p {
+    font-size: 1.5rem;
+    color: var(--blanco);
+}
+
+.smiley {
+    font-size: 5rem;
+    margin: 0; /* Quitar margen para centrar mejor */
+}
+
+.ppm {
+    color: var(--blanco);
+    font-size: 2rem;
+}
