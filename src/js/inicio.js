@@ -1,4 +1,4 @@
-const apiBaseUrl = 'http://192.168.128.173:4000/';
+const apiBaseUrl = 'http://192.168.233.173:4000/';
 
 export async function iniciarSesion(correo, contrasenya) {
     try {
