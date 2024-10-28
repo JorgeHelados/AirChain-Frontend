@@ -47,7 +47,7 @@ function Register() {
                             términos y condiciones
                         </a>
                     </div>
-                    <button lassName='button-form' type="submit">Registrarse</button>
+                    <button className='button-form' type="submit">Registrarse</button>
                 </div>
             </form>
         </div>
