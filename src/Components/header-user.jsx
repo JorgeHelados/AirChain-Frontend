@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FaUser } from 'react-icons/fa';
 import '../Style/header.css';
 import logo from '../Images/logo.png';
 
@@ -12,10 +13,12 @@ const Header_User = () => {
       <nav>
         <ul className="nav-links">
           <li><a href="/">Inicio</a></li>
-          <li><a href="/acerca_de">Acerca de</a></li>
+          <li><a href="/user">Mis mediciones</a></li>
           <li><a href="/contacto">Contacto</a></li>
           <li>
-            <a className="login-button" href="/perfil">Mi perfil</a>
+            <a className="login-button" href="/perfil">
+              <FaUser style={{ marginRight: '5px' }} /> Mi perfil
+            </a>
           </li>
         </ul>
       </nav>

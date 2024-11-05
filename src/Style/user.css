@@ -1,5 +1,3 @@
-/* user.css */
-
 .app-container {
     background-color: var(--gris);
     color: #00c3ff;
@@ -27,25 +25,23 @@
 
 .chart-container {
     background-color: var(--blanco);
-    padding: 30px;
+    height: 310px;
 }
 
 .chart-container p {
     text-align: center;
     color: var(--gris);
-    font-size: 1.5rem;
-    margin-top: 20px;
+    font-size: 1.3rem;
 }
 
 .air-quality-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Centrado vertical */
+    justify-content: center; 
     text-align: center;
-    height: 100%; /* Asegura que ocupe toda la altura disponible */
-    gap: 10px; /* Espacio entre los elementos */
-    min-height: 300px; /* Altura mínima para que el contenido esté centrado */
+    height: 100%; 
+    gap: 10px; 
 }
 
 .air-quality-container p {
@@ -54,8 +50,9 @@
 }
 
 .smiley {
+    size: 100;
     font-size: 5rem;
-    margin: 0; /* Quitar margen para centrar mejor */
+    margin: 0; 
 }
 
 .ppm {

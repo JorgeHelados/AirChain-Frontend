@@ -8,6 +8,7 @@ function Perfil() {
     const [telefono, setTelefono] = useState('');
     const [contrasenaActual, setContrasenaActual] = useState('');
     const [contrasenaNueva, setContrasenaNueva] = useState('');
+    const [contrasenaNueva2] = useState('');
 
     // Cargar datos del perfil al montar el componente
     useEffect(() => {
@@ -15,11 +16,11 @@ function Perfil() {
             const correo = sessionStorage.getItem("usuarioCorreo");
             console.log(correo);
 
-            if (!correo) {
-                alert("No has iniciado sesión");
-                window.location.href = "login";
-                return;
-            }
+            // if (!correo) {
+            //     alert("No has iniciado sesión");
+            //     window.location.href = "login";
+            //     return;
+            // }
 
             try {
                 const data = await cargarDatosPerfil(correo);
@@ -51,6 +52,10 @@ function Perfil() {
         const correo = sessionStorage.getItem("usuarioCorreo");
         if (!contrasenaActual || !contrasenaNueva) {
             alert("Debe llenar ambos campos de contraseña.");
+            return;
+        }
+        if (contrasenaNueva !== contrasenaNueva2) {
+            alert("Las contraseñas no coinciden.");
             return;
         }
         cambiarContrasena(correo, contrasenaActual, contrasenaNueva);
@@ -116,6 +121,13 @@ function Perfil() {
                             placeholder="Contraseña Nueva" 
                             className='perfil-input' 
                             value={contrasenaNueva} 
+                            onChange={(e) => setContrasenaNueva(e.target.value)}
+                        />
+                                                <input 
+                            type="password" 
+                            placeholder="Vuelva a escribir su contraseña nueva" 
+                            className='perfil-input' 
+                            value={contrasenaNueva2} 
                             onChange={(e) => setContrasenaNueva(e.target.value)}
                         />
                     </div>
