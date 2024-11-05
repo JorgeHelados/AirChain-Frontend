@@ -14,6 +14,12 @@ function Register() {
         const contrasenya = document.getElementById('contrasenya').value;
         const telefono = document.getElementById('telefono').value;
 
+        // Verificar si el checkbox de términos y condiciones está marcado
+        if (!aceptaTerminos) {
+            alert('Debes aceptar los términos y condiciones para registrarte.');
+            return;
+        }
+
         // Llamar a la función registrarUsuario con los valores del formulario
         registrarUsuario(nombre, apellidos, correo, contrasenya, telefono)
             .then(response => {
@@ -41,7 +47,7 @@ function Register() {
                     <input className='input-form' id="correo" type="email" placeholder="Correo electrónico" />
                     <input className='input-form' id="contrasenya" type="password" placeholder="Contraseña" />
                     <div className="checkbox-container">
-                        <input type="checkbox" />
+                        <input type="checkbox" id="aceptaTerminos" />
                         Acepto los&nbsp;
                         <a href="/terminos" className="terms_and_conditions">
                             términos y condiciones
