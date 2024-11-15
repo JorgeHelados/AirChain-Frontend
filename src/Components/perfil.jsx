@@ -19,24 +19,19 @@ function Perfil() {
 
     const { nombre, apellidos, telefono, contrasenaActual, contrasenaNueva, contrasenaNueva2 } = formData;
 
-    // Cargar datos del perfil al montar el componente
     useEffect(() => {
         const cargarPerfil = async () => {
-            const correo = sessionStorage.getItem("usuarioCorreo");
-            console.log(correo);
-
-            if (!correo) {
-                alert("No has iniciado sesión");
-                window.location.href = "login";
-                return;
-            }
-
+            const correo = sessionStorage.getItem('usuarioCorreo');
             try {
                 const data = await cargarDatosPerfil(correo);
-                console.log(data);
-                setNombre(data.Nombre);
-                setApellidos(data.Apellidos);
-                setTelefono(data.Telefono);
+                setFormData({
+                    nombre: data.Nombre,
+                    apellidos: data.Apellidos,
+                    telefono: data.Telefono,
+                    contrasenaActual: '',
+                    contrasenaNueva: '',
+                    contrasenaNueva2: ''
+                });
             } catch (error) {
                 console.error('Error al cargar los datos del perfil:', error);
             }
