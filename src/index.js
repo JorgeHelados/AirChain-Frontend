@@ -15,6 +15,7 @@ import AcercaDe from './Components/acerca_de';
 import Contacto from './Components/contacto';
 import User from './Components/user';
 import Perfil from './Components/perfil';
+import Admin from './Components/admin';
  
 import reportWebVitals from './reportWebVitals';
 
@@ -44,6 +45,7 @@ const MainApp = () => {
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/perfil" element={<Perfil />} /> 
         <Route path="/user" element={<User />} /> 
+        <Route path="/admin" element={<Admin />} /> 
       </Routes>
       <Footer />
     </>
