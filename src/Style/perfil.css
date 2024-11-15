@@ -1,4 +1,5 @@
-.perfil-page .profile-container {
+/* Estilos generales de la página de perfil */
+.perfil-page {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,7 +7,8 @@
     background-color: var(--gris); /* Color oscuro de fondo */
 }
 
-.perfil-page .profile-box {
+/* Caja del perfil */
+.perfil-box {
     background-color: var(--negro);
     padding: 0rem 1.5rem;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
@@ -16,84 +18,99 @@
     text-align: center;
 }
 
-/* Título */
-.perfil-page .h2-perfil {
+/* Título del perfil */
+.h2-perfil {
     color: var(--blanco);
     font-size: 2rem;
     margin-bottom: 0.7rem;
 }
 
 /* Estructura de columnas */
-.perfil-page .columns-box {
+.columns-box {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch; /* Hace que las columnas tengan la misma altura */
     gap: 2rem; /* Espacio entre columnas */
     margin-bottom: 0.7rem;
 }
 
 /* Columnas individuales */
-.perfil-page .column-perfil {
+.column-perfil {
     display: flex;
     flex-direction: column;
     flex: 1;
     gap: 0.3rem; /* Espacio entre elementos dentro de la columna */
 }
 
-/* Inputs */
-.perfil-page .perfil-input {
-    margin: 0.2rem 0;
-    padding: 0.5rem;
-    font-size: 0.7rem;
-    border: 1px solid var(--blanco);
-    border-radius: 4px;
-
+/* Columna de botones */
+.column-boton {
+    display: flex;
+    flex: 1; /* Hace que la columna sea del mismo ancho que la otra columna */
+    justify-content: center; /* Centra horizontalmente el contenido */
+    align-items: center; /* Centra verticalmente el contenido */
 }
 
-/* Botones generales */
-.perfil-page .button-perfil, .perfil-page .button-logout {
-    padding: 0.4rem;
-    font-size: 0.7rem;
+/* Estilos de los inputs */
+.perfil-input {
+    margin: 0.2rem 0;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    border: 1px solid var(--blanco);
+    border-radius: 4px;
+    width: 100%; /* Asegura que los inputs ocupen el ancho completo de la columna */
+}
+
+/* Estilos generales de los botones */
+.button-perfil, .button-logout {
+    padding: 0.5rem;
+    font-size: 0.8rem;
     color: var(--blanco);
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    width: 100%;
+    width: 100%; /* Asegura que los botones ocupen el ancho completo de la columna */
     margin-bottom: 0.7rem;
 }
 
-.perfil-page .button-perfil {
+/* Estilos específicos para el botón de editar perfil */
+.button-perfil {
     background-color: var(--principal);
+    transition: background-color 0.3s ease;
+    margin-top: 11px;
 }
 
-.perfil-page .button-logout {
+/* Estilos específicos para el botón de cerrar sesión */
+.button-logout {
     background-color: var(--error);
+    transition: background-color 0.3s ease;
+    margin-bottom: 15px;
 }
 
-/* Hover de botones */
-.perfil-page .button-perfil:hover {
+/* Efectos hover para los botones */
+.button-perfil:hover {
     background-color: var(--secundario);
 }
 
-.perfil-page .button-logout:hover {
+.button-logout:hover {
     background-color: var(--errorOscuro);
 }
 
-/* Estilo del texto inperfilativo */
-.perfil-page .p-perfil {
+/* Estilos de los párrafos */
+.p-perfil {
     color: var(--blanco);
-    font-size: 0.7rem;
-    margin-bottom: 0.1rem;
+    font-size: 0.8rem;
+    margin: 0.5rem 0;
+    text-align: left;
 }
 
-/* Adaptabilidad para pantallas pequeñas */
+/* Responsive */
 @media (max-width: 768px) {
-    .perfil-page .columns-box {
+    .columns-box {
         flex-direction: column;
         gap: 1rem;
     }
 
-    .perfil-page .profile-box {
+    .perfil-box {
         padding: 1.5rem;
     }
 }
