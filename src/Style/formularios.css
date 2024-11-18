@@ -17,33 +17,6 @@
   background-color: rgba(36, 36, 36, 0.75); 
 }
 
-.form-box {
-  position: relative; 
-  z-index: 2; 
-  background-color: var(--negro);
-  padding: 2rem 2rem;
-  box-shadow: 0px 4px 12px var(--gris);
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  text-align: center; 
-}
-
-.h2-form {
-  color: var(--blanco);
-  font-size: 2rem;
-  margin: -0.5rem 0 0.3rem 0;
-}
-
-.input-form {
-  margin: 0.7rem 0;
-  padding: 0.5rem;
-  font-size: 1rem;
-  border: 1px solid var(--blanco);
-  border-radius: 4px;
-}
-
 .button-form {
   padding: 0.7rem;
   font-size: 1rem;
@@ -62,27 +35,17 @@
 /* INDIVIDUAL DE CONTACTO */
 /* ---------------------- */
 .textarea-form{
-  margin: 0.7rem 0 1.4rem 0;
-  padding: 0.5rem;
+  font-family: 'Comfortaa', sans-serif;
+  background-color: var(--gris);
+  color: var(--blanco);
+  width: 97%;
+  padding: 5px 5px 10px 5px;
+  outline: 0;
+  border: 1px solid var(--grisClaro);
+  border-radius: 10px;
   font-size: 1rem;
-  border: 1px solid var(--blanco);
-  border-radius: 4px;
   height: 150px;
   resize: none;
-}
-
-/* ------------------- */
-/* INDIVIDUAL DE LOGIN */
-/* ------------------- */
-.forgot-password {
-  color: var(--principal);
-  text-decoration: none;
-  margin-bottom: 1rem;
-  font-size: small;
-}
-
-.forgot-password:hover {
-  text-decoration: underline;
 }
 
 /* ---------------------- */
@@ -91,7 +54,6 @@
 .checkbox-container {
   display: flex;
   align-items: center;
-  margin: -0.3rem 0 0.4rem 0;
   color: var(--blanco);
   font-size: small;
 }
@@ -102,7 +64,7 @@
 
 .checkbox-container .terms_and_conditions {
   text-decoration: none;
-  color: var(--blanco);
+  color: var(--principal);
   font-size: small;
 }
 
@@ -162,11 +124,149 @@
   background-color: var(--errorOscuro);
 }
 
-/* ---------- */
-/* RESPONSIVE */
-/* ---------- */
-@media (max-width: 400px) {
-  .form-box {
-    width: 70%;
-  }
+
+
+
+
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 12px;
+  position: relative;
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+
+.title {
+  font-size: 28px;
+  display: flex;
+  justify-content: center; 
+  color: var(--blanco);
+  margin-top: 0;          
+  margin-bottom: 0;          
+}
+
+.flex {
+  display: flex;
+  width: 98.5%;
+  gap: 20px;
+}
+
+.form label {
+  position: relative;
+}
+
+.form label .input {
+  background-color: var(--gris);
+  color: var(--blanco);
+  width: 97%;
+  padding: 20px 05px 10px 05px;
+  outline: 0;
+  border: 1px solid var(--grisClaro);
+  border-radius: 10px;
+}
+
+.form label .input + span {
+  color: var(--grisClaro);
+  position: absolute;
+  left: 10px;
+  top: 0px;
+  font-size: 0.9em;
+  cursor: text;
+  transition: 0.3s ease;
+}
+
+.form label .input:placeholder-shown + span {
+  top: 12.5px;
+  font-size: 0.9em;
+}
+
+.form label .input:focus + span,
+.form label .input:valid + span {
+  color: var(--principal);
+  top: 0px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
+
+.input {
+  font-size: medium;
+}
+
+.login-links {
+  text-decoration: none; /* Sin subrayado */
+  color: var(--principal); /* Usa el color principal */
+  font-size: small; /* Tamaño de letra igual que en términos y condiciones */
+  font-weight: normal; /* Asegúrate de que no sea negrita */
+}
+
+.login-links:hover {
+  text-decoration: underline; /* Subrayado al pasar el cursor */
+}
+
+.large-form {
+  display: flex;
+  flex-direction: column;
+  width: 300px; /* Ancho específico */
+  gap: 10px;
+  padding: 20px;
+  border-radius: 12px;
+  position: relative;
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+
+.large-form label {
+  position: relative;
+}
+
+.large-form label .input {
+  background-color: var(--gris);
+  color: var(--blanco);
+  width: 94%; /* Asegura que los inputs ocupen todo el ancho disponible */
+  padding: 15px 10px; /* Ajusta el relleno interno */
+  font-size: 1rem; /* Aumenta el tamaño del texto si es necesario */
+  outline: 0;
+  border: 1px solid var(--grisClaro);
+  border-radius: 10px;
+}
+
+.large-form label .input + span {
+  color: var(--grisClaro);
+  position: absolute;
+  left: 10px;
+  top: 0px;
+  font-size: 0.9em;
+  cursor: text;
+  transition: 0.3s ease;
+}
+
+.large-form label .input:placeholder-shown + span {
+  top: 12.5px;
+  font-size: 0.9em;
+}
+
+.large-form label .input:focus + span,
+.large-form label .input:valid + span {
+  color: var(--principal);
+  top: 0px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
+
+.large-form .button-form {
+  padding: 1rem; /* Ajusta el tamaño del botón */
+  font-size: 1rem; /* Aumenta si es necesario */
+  color: var(--blanco);
+  background-color: var(--principal);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.large-form .button-form:hover {
+  background-color: var(--secundario);
 }

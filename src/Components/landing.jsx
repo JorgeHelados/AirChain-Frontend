@@ -36,25 +36,34 @@ function Landing() {
             </section>
 
             <section className="how-section">
-                <h2>¿Cómo funciona?</h2>
-                <div className="how-grid">
-                    <div className="how-box">
-                        <FontAwesomeIcon icon={faMapMarkerAlt} className="icon" />
-                        <h3>Localización precisa</h3>
-                        <p>Usa la tecnología de GPS para detectar tu ubicación y ofrecerte datos específicos de la calidad del aire en tiempo real.</p>
-                    </div>
-                    <div className="how-box">
-                        <FontAwesomeIcon icon={faGlobe} className="icon" />
-                        <h3>Datos globales</h3>
-                        <p>Consulta el mapa de la calidad del aire y elige las rutas más limpias para tu trayecto diario.</p>
-                    </div>
-                    <div className="how-box">
-                        <FontAwesomeIcon icon={faUsers} className="icon" />
-                        <h3>Comunidad conectada</h3>
-                        <p>Contribuye y comparte tus datos con una comunidad que se preocupa por un ambiente más saludable.</p>
+                <div className="how-container">
+                    <h1>¿Cómo funciona?</h1>
+                    <div className="how-grid">
+                        <div className="how-box">
+                            <FontAwesomeIcon icon={faMapMarkerAlt} className="icon" />
+                            <h3>Localización precisa</h3>
+                            <p>
+                                Usa tecnología GPS para ofrecer datos específicos sobre la calidad del aire en tiempo real, directamente en tu dispositivo.
+                            </p>
+                        </div>
+                        <div className="how-box">
+                            <FontAwesomeIcon icon={faGlobe} className="icon" />
+                            <h3>Datos globales</h3>
+                            <p>
+                                Explora un mapa interactivo que muestra las zonas con mejor calidad de aire y optimiza tus rutas diarias.
+                            </p>
+                        </div>
+                        <div className="how-box">
+                            <FontAwesomeIcon icon={faUsers} className="icon" />
+                            <h3>Comunidad conectada</h3>
+                            <p>
+                                Comparte tus datos con una comunidad global comprometida con mejorar el medio ambiente.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </section>
+
 
             <button className="scroll-to-top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                 <FontAwesomeIcon icon={faArrowUp} />

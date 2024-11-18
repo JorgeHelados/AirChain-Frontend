@@ -4,7 +4,7 @@ import {
     cargarDatosPerfil,
     actualizarNombreApellidos,
     actualizarTelefono,
-    cambiarContrasena
+    cambiarContrasena,
 } from '../js/miPerfil';
 
 function Perfil() {
@@ -14,7 +14,7 @@ function Perfil() {
         telefono: '',
         contrasenaActual: '',
         contrasenaNueva: '',
-        contrasenaNueva2: ''
+        contrasenaNueva2: '',
     });
 
     const { nombre, apellidos, telefono, contrasenaActual, contrasenaNueva, contrasenaNueva2 } = formData;
@@ -30,7 +30,7 @@ function Perfil() {
                     telefono: data.Telefono,
                     contrasenaActual: '',
                     contrasenaNueva: '',
-                    contrasenaNueva2: ''
+                    contrasenaNueva2: '',
                 });
             } catch (error) {
                 console.error('Error al cargar los datos del perfil:', error);
@@ -44,18 +44,13 @@ function Perfil() {
         const { name, value } = e.target;
         setFormData((prevData) => ({
             ...prevData,
-            [name]: value
+            [name]: value,
         }));
     };
 
     const manejarActualizarNombre = () => {
         const correo = sessionStorage.getItem('usuarioCorreo');
         actualizarNombreApellidos(correo, nombre, apellidos, telefono);
-    };
-
-    const manejarActualizarTelefono = () => {
-        const correo = sessionStorage.getItem('usuarioCorreo');
-        actualizarTelefono(correo, telefono, nombre, apellidos);
     };
 
     const manejarCambioContrasena = () => {
@@ -79,86 +74,89 @@ function Perfil() {
     };
 
     return (
-        <div className="perfil-page">
-            <div className="perfil-box">
-                <h2 className="h2-perfil">Mi perfil</h2>
+        <div className="form-container">
+            <form className="form">
+                <h1 className="title">Mi perfil</h1>
 
-                <p className="p-perfil">¿Has cambiado de nombre o apellidos?</p>
-                <div className="columns-box">
-                    <div className="column-perfil">
+                <p>¿Has cambiado de nombre o apellidos?</p>
+                <div className="flex">
+                    <label>
                         <input
                             type="text"
                             name="nombre"
-                            placeholder="Nombre"
-                            className="perfil-input"
+                            className="input"
                             value={nombre}
                             onChange={handleChange}
                         />
+                        <span>Nombre</span>
+                    </label>
+                    <label>
                         <input
                             type="text"
                             name="apellidos"
-                            placeholder="Apellidos"
-                            className="perfil-input"
+                            className="input"
                             value={apellidos}
                             onChange={handleChange}
                         />
-                        <input
-                            type="tel"
-                            name="telefono"
-                            placeholder="Número de teléfono"
-                            className="perfil-input"
-                            value={telefono}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className="column-boton">
-                        <button className="button-perfil" onClick={manejarActualizarNombre}>
-                            Editar datos personales
-                        </button>
-                    </div>
+                        <span>Apellido</span>
+                    </label>
+                    <label>
+                    <input
+                        type="tel"
+                        name="telefono"
+                        className="input"
+                        value={telefono}
+                        onChange={handleChange}
+                    />
+                    <span>Número de teléfono</span>
+                </label>
                 </div>
+                <button className="button-form" onClick={manejarActualizarNombre}>
+                    Editar datos personales
+                </button>
 
-                <p className="p-perfil">
-                    Escriba primero su contraseña actual y posteriormente su nueva contraseña
-                </p>
-                <div className="columns-box">
-                    <div className="column-perfil">
+                <p>Escriba primero su contraseña actual y posteriormente su nueva contraseña</p>
+                <div className="flex">
+                    <label>
                         <input
                             type="password"
                             name="contrasenaActual"
-                            placeholder="Contraseña Actual"
-                            className="perfil-input"
+                            className="input"
                             value={contrasenaActual}
                             onChange={handleChange}
                         />
+                        <span>Contraseña actual</span>
+                    </label>                
+                    <label>
                         <input
                             type="password"
                             name="contrasenaNueva"
-                            placeholder="Contraseña Nueva"
-                            className="perfil-input"
+                            className="input"
                             value={contrasenaNueva}
                             onChange={handleChange}
                         />
+                        <span>Contraseña nueva</span>
+                    </label>
+                    <label>
                         <input
                             type="password"
                             name="contrasenaNueva2"
-                            placeholder="Repetir Contraseña Nueva"
-                            className="perfil-input"
+                            className="input"
                             value={contrasenaNueva2}
                             onChange={handleChange}
                         />
-                    </div>
-                    <div className="column-boton">
-                        <button className="button-perfil" onClick={manejarCambioContrasena}>
-                            Editar contraseña
-                        </button>
-                    </div>
+                        <span>Repetir contraseña actual</span>
+                    </label>
                 </div>
 
-                <button className="button-logout" onClick={handleLogout}>
+                <button className="button-form" onClick={manejarCambioContrasena}>
+                    Editar contraseña
+                </button>
+
+                <button className="button-error" onClick={handleLogout}>
                     Cerrar sesión
                 </button>
-            </div>
+            </form>
         </div>
     );
 }

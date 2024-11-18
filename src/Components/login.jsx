@@ -27,32 +27,32 @@ function Login() {
 
     return (
         <div className="form-container">
-            <form onSubmit={handleLogin}>
-                <div className="form-box">
-                    <h2 className="h2-form">Inicia sesión</h2>
-                    <input className='input-form'
-                        type="email"
-                        placeholder="Correo electrónico"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
-                    <input className='input-form'
-                        type="password"
-                        placeholder="Contraseña"
-                        value={contrasenya}
-                        onChange={(e) => setContrasenya(e.target.value)}
-                        required
-                    />
-                    {error && <p className="error-message">{error}</p>}
-                    <a href="/recuperar-contraseña" className="forgot-password">
-                        ¿Has olvidado la contraseña?
-                    </a>
-                    <a href="/register" className="forgot-password">
-                        ¿No tienes cuenta? Regístrate
-                    </a>
-                    <button className='button-form' type="submit">Iniciar sesión</button>
-               </div>
+            <form className="large-form" onSubmit={handleLogin}>
+                <h1 className="title">Inicia sesión</h1>
+
+                <label>
+                    <input className="input" type="email" value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required/>
+                    <span>Correo electrónico</span>
+                </label> 
+
+                <label>
+                    <input className='input' type="password" value={contrasenya}
+                    onChange={(e) => setContrasenya(e.target.value)}
+                    required />
+                    <span>Contraseña</span>
+                </label>
+
+                {error && <p className="error-message">{error}</p>}
+                <a href="/recuperar-contraseña" className="login-links">
+                    ¿Has olvidado la contraseña?
+                </a>
+                <a href="/register" className="login-links">
+                    ¿No tienes cuenta? Regístrate
+                </a>
+
+                <button className='button-form' type="submit">Iniciar sesión</button>
             </form>
         </div>
     );

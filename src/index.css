@@ -1,10 +1,12 @@
 /* DEFINIR COLORES */
 :root {
   --principal: #00ccdd;
+  --principalClaro: #4ed1dd;
   --secundario: #009295;
   --blanco: #f4f4f4;
   --negro: #242424;
   --gris: #333333;
+  --grisClaro: #606060;
   --error: #ce0b0b;
   --errorOscuro: #980909;
 }

@@ -92,36 +92,100 @@ h3 {
     background-color: var(--secundario);
 }
 
-.about-container {
-    max-width: 800px;
-    margin: 0 auto;
-}
+/* ------------- */
+/* SECTION ABOUT */
+/* ------------- */
+.about-section{
+    background-image: radial-gradient(circle, var(--negro), transparent 20%, var(--gris)); /* Degradado */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: var(--negro);
+  }
 
 .about-section p {
     color: var(--blanco);
     text-align: justify;
 }
 
-.icon {
-    font-size: 3rem;
+/* ----------- */
+/* SECTION HOW */
+/* ----------- */
+
+/* Fondo */
+.how-section {
+    background-image: radial-gradient(circle, var(--grisClaro), transparent 30%, var(--gris));
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: var(--grisClaro);
+  }
+
+/* Titulo seccion */
+.how-container h1 {
+    font-size: 2.5rem;
     color: var(--blanco);
+    margin-bottom: 40px;
+    letter-spacing: 1px;
 }
 
+/* Orden de las cajas */
 .how-grid {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 20px;
     flex-wrap: wrap;
 }
 
+/* Cajas */
 .how-box {
-    background-color: var(--negro);
+    background: var(--gris);
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    border-radius: 10px;
-    width: 250px;
-    margin: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 280px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Iconos */
+.how-box .icon {
+    font-size: 3rem;
+    color: var(--principal);
+    margin-bottom: 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Texto */
+.how-box h3 {
+    font-size: 1.5rem;
+    color: var(--principal);
+    margin-bottom: 10px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.how-box p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--blanco);
+}
+
+/* Raton por encima de las cajas */
+.how-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.how-box:hover .icon {
+    color: var(--secundario);
+    transform: scale(1.1);
+}
+
+.how-box:hover h3{
+    color: var(--secundario);
+}
+
+/* ---------------------- */
+/* SCROLLEAR HACIA ARRIBA */
+/* ---------------------- */
 .scroll-to-top {
     position: fixed;
     bottom: 20px;

@@ -1,6 +1,6 @@
 .app-container {
     background-color: var(--gris);
-    color: #00c3ff;
+    color: var(--principal);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,6 +34,53 @@
     font-size: 1.3rem;
 }
 
+/* -------- */
+/* CARGANDO */
+/* -------- */
+.loading-wave {
+    height: 170px;
+    display:flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  
+  .loading-bar {
+    width: 20px;
+    margin: 0 5px;
+    background-color: var(--principal);
+    border-radius: 5px;
+    animation: loading-wave-animation 1s ease-in-out infinite;
+  }
+  
+  .loading-bar:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  
+  .loading-bar:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+  
+  .loading-bar:nth-child(4) {
+    animation-delay: 0.3s;
+  }
+  
+  @keyframes loading-wave-animation {
+    0% {
+      height: 20px;
+    }
+  
+    50% {
+      height: 60px;
+    }
+  
+    100% {
+      height: 20px;
+    }
+  }  
+
+/* ---------------- */
+/* Container Carita */
+/* ---------------- */
 .air-quality-container {
     display: flex;
     flex-direction: column;
@@ -58,4 +105,34 @@
 .ppm {
     color: var(--blanco);
     font-size: 2rem;
+}
+
+/* Selector de gas */
+.gas-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gas-selector label {
+    font-size: 1.3rem;
+    color: var(--blanco);
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.gas-selector select {
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    border: 2px solid var(--blanco);
+    background: var(--gris);
+    color: var(--blanco);
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gas-selector select:hover {
+    border-color: var(--principalClaro);
+    box-shadow: 0 0 10px rgba(0, 204, 221, 0.5);
 }

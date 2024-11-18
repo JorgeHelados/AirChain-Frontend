@@ -63,11 +63,11 @@ function App() {
 
     let SmileyIcon;
     if (lastPpmValue >= 100) {
-        SmileyIcon = <FaFrown color="red" size={123} />;
+        SmileyIcon = <FaFrown color="red" size={70} />;
     } else if (lastPpmValue >= 50) {
-        SmileyIcon = <FaMeh color="orange" size={123} />;
+        SmileyIcon = <FaMeh color="orange" size={70} />;
     } else {
-        SmileyIcon = <FaSmile color="limegreen" size={123} />;
+        SmileyIcon = <FaSmile color="limegreen" size={70} />;
     }
 
     return (
@@ -77,26 +77,33 @@ function App() {
                     {chartData.labels.length > 0 ? (
                         <Line data={chartData} options={options} />
                     ) : (
-                        <p>Cargando datos...</p>
+                        <div class="loading-wave">
+                            <div class="loading-bar"></div>
+                            <div class="loading-bar"></div>
+                            <div class="loading-bar"></div>
+                            <div class="loading-bar"></div>
+                        </div>
                     )}
                     <p>Medición diaria</p>
                 </div>
                 <div className="air-quality-container">
-                    <p>Calidad del aire actual:</p>
+                    <div className="gas-selector">
+                        <select
+                            value={tipoGas}
+                            onChange={(e) => setTipoGas(e.target.value)}
+                        >
+                            <option value="Ozono">Ozono</option>
+                            <option value="Dioxido de Nitrogeno">Dióxido de Nitrógeno</option>
+                            <option value="Monoxido de Carbono">Monóxido de Carbono</option>
+                        </select>
+                    </div>
+
+                    {/* CAMBIAR PARA QUE COJA LA ULTIMA HORA REGISTRADA */}
+                    <p>Hora de la última medición: "La Hora"</p>
                     <div className="smiley">{SmileyIcon}</div>
                     <p className="ppm">{lastPpmValue} ppm</p>
                 </div>
-                <div className="gas-selector">
-                    <label>Selecciona el gas: </label>
-                    <select
-                        value={tipoGas}
-                        onChange={(e) => setTipoGas(e.target.value)}
-                    >
-                        <option value="Ozono">Ozono</option>
-                        <option value="Dioxido de Nitrogeno">Dióxido de Nitrógeno</option>
-                        <option value="Monoxido de Carbono">Monóxido de Carbono</option>
-                    </select>
-                </div>
+                
             </div>
         </div>
     );
