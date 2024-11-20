@@ -12,7 +12,9 @@ const Header = () => {
   return (
     <header className="header">
       <div className="logo">
-        <img src={logo} alt="Logo" />
+        <a href="/">
+          <img src={logo} alt="Logo" />
+        </a>  
       </div>
       <nav>
         <ul className="nav-links">
@@ -20,7 +22,7 @@ const Header = () => {
           <li><a href="/acerca_de">Acerca de</a></li>
           <li><a href="/contacto">Contacto</a></li>
           <li>
-            <a className="login-button" href="/login">Inicia Sesión</a>
+            <a className="header-button" href="/login">Inicia Sesión</a>
           </li>
         </ul>
       </nav>
