@@ -52,24 +52,42 @@ function Register() {
 
     return (
         <div className="form-container">
-            <form id="registerForm" onSubmit={handleRegister}>
-                <div className="form-box">
-                    <h2 className='h2-form'>Regístrate</h2>
-                    <input className='input-form' id="nombre" type="text" placeholder="Nombre" />
-                    <input className='input-form' id="apellidos" type="text" placeholder="Apellido" />
-                    <input className='input-form' id="telefono" type="tel" placeholder="Número de teléfono" />
-                    <input className='input-form' id="correo" type="email" placeholder="Correo electrónico" />
-                    <input className='input-form' id="contrasenya" type="password" placeholder="Contraseña" />
-                    <input className='input-form' id="contrasenya2" type="password" placeholder="Vuelve a escribir la contraseña" />
-                    <div className="checkbox-container">
-                        <input type="checkbox" id="aceptaTerminos" />
-                        Acepto los&nbsp;
-                        <a href="/terminos" className="terms_and_conditions">
-                            términos y condiciones
-                        </a>
-                    </div>
-                    <button className='button-form' type="submit">Registrarse</button>
+            <form className="form" id="registerForm" onSubmit={handleRegister}>
+                <h1 className="title">Regístrate </h1>
+                <div className="flex">
+                    <label>
+                        <input className="input" id="nombre" type="text" placeholder required />
+                        <span>Nombre</span>
+                    </label>
+                    <label>
+                        <input className="input" id="apellidos" type="text" placeholder required />
+                        <span>Apellido</span>
+                    </label>
                 </div>
+                <label>
+                    <input className="input" id="telefono" type="tel" placeholder required />
+                    <span>Número de teléfono</span>
+                </label>   
+                <label>
+                    <input className="input" id="correo" type="email" placeholder required />
+                    <span>Correo electrónico</span>
+                </label> 
+                <label>
+                    <input className="input" id="contrasenya" type="password" placeholder required />
+                    <span>Contraseña</span>
+                </label>
+                <label>
+                    <input className="input" id="contrasenya2" type="password" placeholder required />
+                    <span>Confirmar contraseña</span>
+                </label>
+                <div className="checkbox-container">
+                    <input type="checkbox" id="aceptaTerminos" />
+                    Acepto los&nbsp;
+                    <a href="/terminos" className="terms_and_conditions">
+                        términos y condiciones
+                    </a>
+                </div>
+                <button className='button-form' type="submit">Registrarse</button>
             </form>
         </div>
     );

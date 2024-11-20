@@ -92,36 +92,166 @@ h3 {
     background-color: var(--secundario);
 }
 
-.about-container {
-    max-width: 800px;
-    margin: 0 auto;
-}
+/* ------------- */
+/* SECTION ABOUT */
+/* ------------- */
+.about-section{
+    background-image: radial-gradient(circle, var(--negro), transparent 20%, var(--gris)); /* Degradado */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: var(--negro);
+  }
 
 .about-section p {
     color: var(--blanco);
     text-align: justify;
 }
 
-.icon {
-    font-size: 3rem;
+/* ----------- */
+/* SECTION HOW */
+/* ----------- */
+
+/* Fondo */
+.how-section {
+    position: relative; /* Enable positioning for breeze layers */
+    overflow: hidden; /* Ensure breeze elements stay contained */
+    padding: 50px;
+    text-align: justify;
+}
+
+/* Breeze layers */
+.how-section .breeze-layer {
+    position: absolute;
+    width: 200%; /* Extended width for smooth flowing */
+    height: 12px; /* Thicker for visibility */
+    background: #4ed1dd33; /* Slightly more opaque */
+    border-radius: 50%;
+    animation: breezeMotion 10s linear infinite; /* Slower and smoother */
+}
+
+.how-section .breeze-layer:nth-child(1) {
+    top: 15%;
+    left: -200%;
+    animation-duration: 12s; /* Different speeds for natural variation */
+    animation-delay: 0s;
+}
+
+.how-section .breeze-layer:nth-child(2) {
+    top: 35%;
+    left: -200%;
+    animation-duration: 14s;
+    animation-delay: 2s;
+}
+
+.how-section .breeze-layer:nth-child(3) {
+    top: 55%;
+    left: -200%;
+    animation-duration: 11s;
+    animation-delay: 4s;
+}
+
+.how-section .breeze-layer:nth-child(4) {
+    top: 75%;
+    left: -200%;
+    animation-duration: 13s;
+    animation-delay: 6s;
+}
+
+.how-container {
+    position: relative; /* Content stays above breeze effect */
+    z-index: 1;
+}
+
+.how-container h1, .about-container p {
     color: var(--blanco);
 }
 
+/* Smooth, wavy motion */
+@keyframes breezeMotion {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    25% {
+        transform: translateX(50%) translateY(-5px); /* Slightly larger up-and-down */
+    }
+    50% {
+        transform: translateX(100%) translateY(0);
+    }
+    75% {
+        transform: translateX(150%) translateY(5px); /* Slightly larger up-and-down */
+    }
+    100% {
+        transform: translateX(200%) translateY(0);
+    }
+}
+
+
+/* Titulo seccion */
+.how-container h1 {
+    font-size: 2.5rem;
+    color: var(--blanco);
+    margin-bottom: 40px;
+}
+
+/* Orden de las cajas */
 .how-grid {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 20px;
     flex-wrap: wrap;
 }
 
+/* Cajas */
 .how-box {
-    background-color: var(--negro);
+    background: var(--negro);
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    border-radius: 10px;
-    width: 250px;
-    margin: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 280px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Iconos */
+.how-box .icon {
+    font-size: 3rem;
+    color: var(--principal);
+    margin-bottom: 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Texto */
+.how-box h3 {
+    font-size: 1.5rem;
+    color: var(--principal);
+    margin-bottom: 10px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.how-box p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--blanco);
+}
+
+/* Raton por encima de las cajas */
+.how-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.how-box:hover .icon {
+    color: var(--secundario);
+    transform: scale(1.1);
+}
+
+.how-box:hover h3{
+    color: var(--secundario);
+}
+
+/* ---------------------- */
+/* SCROLLEAR HACIA ARRIBA */
+/* ---------------------- */
 .scroll-to-top {
     position: fixed;
     bottom: 20px;

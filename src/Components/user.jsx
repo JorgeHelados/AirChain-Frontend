@@ -63,43 +63,60 @@ function App() {
 
     let SmileyIcon;
     if (lastPpmValue >= 100) {
-        SmileyIcon = <FaFrown color="red" size={123} />;
+        SmileyIcon = <FaFrown color="red" size={70} />;
     } else if (lastPpmValue >= 50) {
-        SmileyIcon = <FaMeh color="orange" size={123} />;
+        SmileyIcon = <FaMeh color="orange" size={70} />;
     } else {
-        SmileyIcon = <FaSmile color="limegreen" size={123} />;
+        SmileyIcon = <FaSmile color="limegreen" size={70} />;
     }
 
     return (
         <div className="app-container">
+            {/* Enlazar llavero */}
+            <div className="link-key-container">
+                <label htmlFor="key-code" className="key-label">Enlazar llavero:</label>
+                <input 
+                    type="text" 
+                    id="key-code" 
+                    placeholder="Código de serie" 
+                    className="key-input" 
+                />
+                <button className="pair-button">Emparejar</button>
+            </div>
+    
+            {/* Gráfica y caritas */}
             <div className="content">
                 <div className="chart-container">
                     {chartData.labels.length > 0 ? (
                         <Line data={chartData} options={options} />
                     ) : (
-                        <p>Cargando datos...</p>
+                        <div className="loading-wave">
+                            <div className="loading-bar"></div>
+                            <div className="loading-bar"></div>
+                            <div className="loading-bar"></div>
+                            <div className="loading-bar"></div>
+                        </div>
                     )}
                     <p>Medición diaria</p>
                 </div>
                 <div className="air-quality-container">
-                    <p>Calidad del aire actual:</p>
+                    <div className="gas-selector">
+                        <select
+                            value={tipoGas}
+                            onChange={(e) => setTipoGas(e.target.value)}
+                        >
+                            <option value="Ozono">Ozono</option>
+                            <option value="Dioxido de Nitrogeno">Dióxido de Nitrógeno</option>
+                            <option value="Monoxido de Carbono">Monóxido de Carbono</option>
+                        </select>
+                    </div>
+                    <p>Hora de la última medición: "La Hora"</p>
                     <div className="smiley">{SmileyIcon}</div>
                     <p className="ppm">{lastPpmValue} ppm</p>
                 </div>
-                <div className="gas-selector">
-                    <label>Selecciona el gas: </label>
-                    <select
-                        value={tipoGas}
-                        onChange={(e) => setTipoGas(e.target.value)}
-                    >
-                        <option value="Ozono">Ozono</option>
-                        <option value="Dioxido de Nitrogeno">Dióxido de Nitrógeno</option>
-                        <option value="Monoxido de Carbono">Monóxido de Carbono</option>
-                    </select>
-                </div>
             </div>
         </div>
-    );
+    );    
 }
 
 export default App;

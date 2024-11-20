@@ -5,6 +5,7 @@ import './index.css';
 
 import HeaderGeneral from './Components/header';   
 import HeaderUser from './Components/header-user'; 
+import HeaderAdmin from './Components/header-admin'; 
 import Footer from './Components/footer';
 
 import Landing from './Components/landing';
@@ -23,10 +24,11 @@ const Header = () => {
   const location = useLocation(); // Obtener la ubicación actual
 
   const isUserPage = location.pathname === '/user' || location.pathname === '/perfil';
+  const isAdminPage = location.pathname === '/admin';
 
   return (
     <>
-      {isUserPage ? <HeaderUser /> : <HeaderGeneral />}
+      {isUserPage ? <HeaderUser /> : isAdminPage ? <HeaderAdmin/> : <HeaderGeneral />}
     </>
   );
 };
@@ -36,17 +38,17 @@ const MainApp = () => {
   return (
     <>
       <Header /> {/* Header dinámico según la ruta */}
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/terminos" element={<Terminos />} />
-        <Route path="/acerca_de" element={<AcercaDe />} />
-        <Route path="/contacto" element={<Contacto />} />
-        <Route path="/perfil" element={<Perfil />} /> 
-        <Route path="/user" element={<User />} /> 
-        <Route path="/admin" element={<Admin />} /> 
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/terminos" element={<Terminos />} />
+          <Route path="/acerca_de" element={<AcercaDe />} />
+          <Route path="/contacto" element={<Contacto />} />
+          <Route path="/perfil" element={<Perfil />} /> 
+          <Route path="/user" element={<User />} /> 
+          <Route path="/admin" element={<Admin />} /> 
+        </Routes>
       <Footer />
     </>
   );
