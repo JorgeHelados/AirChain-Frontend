@@ -72,16 +72,29 @@ function App() {
 
     return (
         <div className="app-container">
+            {/* Enlazar llavero */}
+            <div className="link-key-container">
+                <label htmlFor="key-code" className="key-label">Enlazar llavero:</label>
+                <input 
+                    type="text" 
+                    id="key-code" 
+                    placeholder="Código de serie" 
+                    className="key-input" 
+                />
+                <button className="pair-button">Emparejar</button>
+            </div>
+    
+            {/* Gráfica y caritas */}
             <div className="content">
                 <div className="chart-container">
                     {chartData.labels.length > 0 ? (
                         <Line data={chartData} options={options} />
                     ) : (
-                        <div class="loading-wave">
-                            <div class="loading-bar"></div>
-                            <div class="loading-bar"></div>
-                            <div class="loading-bar"></div>
-                            <div class="loading-bar"></div>
+                        <div className="loading-wave">
+                            <div className="loading-bar"></div>
+                            <div className="loading-bar"></div>
+                            <div className="loading-bar"></div>
+                            <div className="loading-bar"></div>
                         </div>
                     )}
                     <p>Medición diaria</p>
@@ -97,16 +110,13 @@ function App() {
                             <option value="Monoxido de Carbono">Monóxido de Carbono</option>
                         </select>
                     </div>
-
-                    {/* CAMBIAR PARA QUE COJA LA ULTIMA HORA REGISTRADA */}
                     <p>Hora de la última medición: "La Hora"</p>
                     <div className="smiley">{SmileyIcon}</div>
                     <p className="ppm">{lastPpmValue} ppm</p>
                 </div>
-                
             </div>
         </div>
-    );
+    );    
 }
 
 export default App;

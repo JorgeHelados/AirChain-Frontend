@@ -113,18 +113,84 @@ h3 {
 
 /* Fondo */
 .how-section {
-    background-image: radial-gradient(circle, var(--grisClaro), transparent 30%, var(--gris));
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: var(--grisClaro);
-  }
+    position: relative; /* Enable positioning for breeze layers */
+    overflow: hidden; /* Ensure breeze elements stay contained */
+    padding: 50px;
+    text-align: justify;
+}
+
+/* Breeze layers */
+.how-section .breeze-layer {
+    position: absolute;
+    width: 200%; /* Extended width for smooth flowing */
+    height: 12px; /* Thicker for visibility */
+    background: #4ed1dd33; /* Slightly more opaque */
+    border-radius: 50%;
+    animation: breezeMotion 10s linear infinite; /* Slower and smoother */
+}
+
+.how-section .breeze-layer:nth-child(1) {
+    top: 15%;
+    left: -200%;
+    animation-duration: 12s; /* Different speeds for natural variation */
+    animation-delay: 0s;
+}
+
+.how-section .breeze-layer:nth-child(2) {
+    top: 35%;
+    left: -200%;
+    animation-duration: 14s;
+    animation-delay: 2s;
+}
+
+.how-section .breeze-layer:nth-child(3) {
+    top: 55%;
+    left: -200%;
+    animation-duration: 11s;
+    animation-delay: 4s;
+}
+
+.how-section .breeze-layer:nth-child(4) {
+    top: 75%;
+    left: -200%;
+    animation-duration: 13s;
+    animation-delay: 6s;
+}
+
+.how-container {
+    position: relative; /* Content stays above breeze effect */
+    z-index: 1;
+}
+
+.how-container h1, .about-container p {
+    color: var(--blanco);
+}
+
+/* Smooth, wavy motion */
+@keyframes breezeMotion {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    25% {
+        transform: translateX(50%) translateY(-5px); /* Slightly larger up-and-down */
+    }
+    50% {
+        transform: translateX(100%) translateY(0);
+    }
+    75% {
+        transform: translateX(150%) translateY(5px); /* Slightly larger up-and-down */
+    }
+    100% {
+        transform: translateX(200%) translateY(0);
+    }
+}
+
 
 /* Titulo seccion */
 .how-container h1 {
     font-size: 2.5rem;
     color: var(--blanco);
     margin-bottom: 40px;
-    letter-spacing: 1px;
 }
 
 /* Orden de las cajas */
@@ -137,7 +203,7 @@ h3 {
 
 /* Cajas */
 .how-box {
-    background: var(--gris);
+    background: var(--negro);
     border-radius: 15px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     padding: 20px;

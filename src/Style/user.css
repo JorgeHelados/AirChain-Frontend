@@ -1,138 +1,179 @@
+/* GENERAL */
 .app-container {
-    background-color: var(--gris);
-    color: var(--principal);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 78vh;
+  background-color: var(--gris);
+  color: var(--principal);
+  display: flex;
+  flex-direction: column; /* Organiza en filas */
+  align-items: center;
+  justify-content: center;
+  height: 78vh;
+  gap: 20px; /* Espacio entre filas */
 }
 
+/* --------------- */
+/* ENLAZAR LLAVERO */
+/* --------------- */
+.link-key-container {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Texto "Enlazar llavero" */
+.key-label {
+  font-size: 1.3rem;
+  color: var(--principal);
+  font-weight: bold;
+}
+
+/* Input para el código de serie */
+.key-input {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 2px solid var(--grisOscuro);
+  outline: none;
+  color: var(--negro);
+}
+
+/* Botón "Emparejar" */
+.pair-button {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--principal);
+  color: var(--blanco);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pair-button:hover {
+  background-color: var(--principalClaro);
+}
+
+/* ------------- */
+/* CAJAS GRANDES */
+/* ------------- */
 .content {
-    display: flex;
-    width: 90%;
-    gap: 20px;
+  display: flex; /* Elementos en fila */
+  width: 90%; /* Ocupa la mayor parte del ancho */
+  gap: 20px; /* Espacio entre la gráfica y las caritas */
 }
 
-.chart-container, .air-quality-container {
-    background-color: var(--negro);
-    border-radius: 10px;
-    width: 50%;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* ------- */
+/* GRAFICA */
+/* ------- */
+.chart-container,
+.air-quality-container {
+  background-color: var(--negro);
+  border-radius: 10px;
+  width: 50%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* Contenedor de la gráfica */
 .chart-container {
-    background-color: var(--blanco);
-    height: 310px;
+  background-color: var(--blanco); /* Fondo blanco para la gráfica */
+  height: 310px;
 }
 
 .chart-container p {
-    text-align: center;
-    color: var(--gris);
-    font-size: 1.3rem;
+  text-align: center;
+  color: var(--gris);
+  font-size: 1.3rem;
 }
 
-/* -------- */
-/* CARGANDO */
-/* -------- */
+/* --------------- */
+/* BARRAS CARGANDO */
+/* --------------- */
 .loading-wave {
-    height: 170px;
-    display:flex;
-    justify-content: center;
-    align-items: flex-end;
-  }
-  
-  .loading-bar {
-    width: 20px;
-    margin: 0 5px;
-    background-color: var(--principal);
-    border-radius: 5px;
-    animation: loading-wave-animation 1s ease-in-out infinite;
-  }
-  
-  .loading-bar:nth-child(2) {
-    animation-delay: 0.1s;
-  }
-  
-  .loading-bar:nth-child(3) {
-    animation-delay: 0.2s;
-  }
-  
-  .loading-bar:nth-child(4) {
-    animation-delay: 0.3s;
-  }
-  
-  @keyframes loading-wave-animation {
-    0% {
+  height: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.loading-bar {
+  width: 20px;
+  margin: 0 5px;
+  background-color: var(--principal);
+  border-radius: 5px;
+  animation: loading-wave-animation 1s ease-in-out infinite;
+}
+
+.loading-bar:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.loading-bar:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.loading-bar:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+@keyframes loading-wave-animation {
+  0% {
       height: 20px;
-    }
-  
-    50% {
+  }
+
+  50% {
       height: 60px;
-    }
-  
-    100% {
+  }
+
+  100% {
       height: 20px;
-    }
-  }  
-
-/* ---------------- */
-/* Container Carita */
-/* ---------------- */
-.air-quality-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; 
-    text-align: center;
-    height: 100%; 
-    gap: 10px; 
+  }
 }
 
+/* ---------------------- */
+/* CARITAS Y SELECTOR GAS */
+/* ---------------------- */
 .air-quality-container p {
-    font-size: 1.5rem;
-    color: var(--blanco);
+  font-size: 1.5rem;
+  color: var(--blanco);
 }
 
+/* Icono carita */
 .smiley {
-    size: 100;
-    font-size: 5rem;
-    margin: 0; 
+  font-size: 5rem;
+  margin: 0;
 }
 
+/* Texto ppm */
 .ppm {
-    color: var(--blanco);
-    font-size: 2rem;
+  color: var(--blanco);
+  font-size: 2rem;
 }
 
 /* Selector de gas */
-.gas-selector {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.gas-selector label {
-    font-size: 1.3rem;
-    color: var(--blanco);
-    margin-right: 10px;
-    font-weight: bold;
-}
-
 .gas-selector select {
-    padding: 10px 15px;
-    font-size: 1.2rem;
-    border-radius: 10px;
-    border: 2px solid var(--blanco);
-    background: var(--gris);
-    color: var(--blanco);
-    outline: none;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  border: 2px solid var(--blanco);
+  background: var(--gris);
+  color: var(--blanco);
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Sin esto el selector de gas no ocupa el 100% no se porque */
+.gas-selector {
+  width: 100%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .gas-selector select:hover {
-    border-color: var(--principalClaro);
-    box-shadow: 0 0 10px rgba(0, 204, 221, 0.5);
+  border-color: var(--principalClaro);
+  box-shadow: 0 0 10px rgba(0, 204, 221, 0.5);
 }

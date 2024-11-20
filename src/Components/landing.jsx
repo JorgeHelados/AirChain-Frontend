@@ -23,7 +23,7 @@ function Landing() {
             </section>
 
             <section id="about-section" className="about-section">
-                <div className='about-container'>
+                <div className="about-container">
                     <h1>Conectándote con un aire más limpio</h1>
                     <p>
                         En un entorno urbano donde la calidad del aire puede variar de una calle a otra, estar informado puede marcar la diferencia entre respirar salud o contaminación.
@@ -35,7 +35,15 @@ function Landing() {
                 </div>
             </section>
 
-            <section className="how-section">
+
+
+            <section className="how-section">                
+                {/* Breeze Layers */}
+                <div className="breeze-layer"></div>
+                <div className="breeze-layer"></div>
+                <div className="breeze-layer"></div>
+                <div className="breeze-layer"></div>
+
                 <div className="how-container">
                     <h1>¿Cómo funciona?</h1>
                     <div className="how-grid">
