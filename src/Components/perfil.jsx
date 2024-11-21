@@ -78,7 +78,7 @@ function Perfil() {
             <form className="form">
                 <h1 className="title">Mi perfil</h1>
 
-                <p>¿Has cambiado de nombre o apellidos?</p>
+                <p>¿Has cambiado tus datos personales?</p>
                 <div className="flex">
                     <label>
                         <input

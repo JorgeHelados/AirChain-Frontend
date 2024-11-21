@@ -17,6 +17,8 @@ import Contacto from './Components/contacto';
 import User from './Components/user';
 import Perfil from './Components/perfil';
 import Admin from './Components/admin';
+import Recuperar from './Components/recuperar-contrasenya';
+import Cambiar from './Components/cambiar-contrasenya';
  
 import reportWebVitals from './reportWebVitals';
 
@@ -48,6 +50,8 @@ const MainApp = () => {
           <Route path="/perfil" element={<Perfil />} /> 
           <Route path="/user" element={<User />} /> 
           <Route path="/admin" element={<Admin />} /> 
+          <Route path="/recuperar-contraseña" element={<Recuperar />} /> 
+          <Route path="/cambiar-contraseña" element={<Cambiar />} /> 
         </Routes>
       <Footer />
     </>

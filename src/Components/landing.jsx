@@ -35,17 +35,9 @@ function Landing() {
                 </div>
             </section>
 
-
-
-            <section className="how-section">                
-                {/* Breeze Layers */}
-                <div className="breeze-layer"></div>
-                <div className="breeze-layer"></div>
-                <div className="breeze-layer"></div>
-                <div className="breeze-layer"></div>
-
+            <section className="how-section">               
                 <div className="how-container">
-                    <h1>¿Cómo funciona?</h1>
+                    <h1>¿Cómo funciona?</h1> 
                     <div className="how-grid">
                         <div className="how-box">
                             <FontAwesomeIcon icon={faMapMarkerAlt} className="icon" />
@@ -71,7 +63,6 @@ function Landing() {
                     </div>
                 </div>
             </section>
-
 
             <button className="scroll-to-top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                 <FontAwesomeIcon icon={faArrowUp} />
