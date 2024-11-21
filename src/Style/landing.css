@@ -1,7 +1,7 @@
 section {
     padding: 50px;
     text-align: center;
-    height: 85vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -95,17 +95,65 @@ h3 {
 /* ------------- */
 /* SECTION ABOUT */
 /* ------------- */
-.about-section{
-    background-image: radial-gradient(circle, var(--negro), transparent 20%, var(--gris)); /* Degradado */
+.about-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: radial-gradient(circle, var(--negro), transparent 20%, var(--gris));
     background-size: cover;
     background-repeat: no-repeat;
     background-color: var(--negro);
-    height: 75vh;
-  }
+    padding: 50px 20px;
+}
 
-.about-section p {
+.about-container {
+    display: flex; /* Usa flexbox para dividir el espacio */
+    justify-content: space-between; /* Asegura que los elementos estén bien separados */
+    align-items: center; /* Centra verticalmente los elementos */
+    max-width: 1200px; /* Define un ancho máximo para mantener la estructura */
+    width: 100%;
+    gap: 20px; /* Espaciado entre texto e imagen */
+}
+
+.about-text {
+    flex: 1; /* Toma el 50% del espacio */
     color: var(--blanco);
-    text-align: justify;
+    text-align: justify; /* Ajusta el texto de forma justificada */
+    padding: 20px;
+    display: flex; /* Cambiar a flexbox para controlar mejor el posicionamiento */
+    flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
+    justify-content: space-between; /* Coloca el texto en la parte superior y el botón en la parte inferior */
+}
+
+.about-text .intro-button {
+    align-self: center; /* Centra el botón horizontalmente */
+}
+
+
+.about-text h1 {
+    font-size: 2.5rem;
+    color: var(--principal);
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--blanco);
+}
+
+.about-image {
+    flex: 0.8;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente la imagen */
+    align-items: center; /* Centra verticalmente la imagen */
+    padding: 20px;
+}
+
+.about-image img {
+    width: 100%; /* Asegura que la imagen no exceda el contenedor */
+    border-radius: 10px; /* Opcional: bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Opcional: sombra */
 }
 
 /* ----------- */
@@ -114,11 +162,14 @@ h3 {
 
 /* Fondo */
 .how-section {
-    position: relative; /* Enable positioning for breeze layers */
-    overflow: hidden; /* Ensure breeze elements stay contained */
-    padding: 50px;
-    text-align: justify;
-    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: radial-gradient(circle, var(--negro), transparent 20%, var(--gris));
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: var(--negro);
+    padding: 50px 20px;
 }
 
 /* Titulo seccion */
@@ -140,7 +191,7 @@ h3 {
 
 /* Cajas */
 .how-box {
-    background: var(--negro);
+    background: var(--gris);
     border-radius: 15px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -178,12 +229,12 @@ h3 {
 }
 
 .how-box:hover .icon {
-    color: var(--secundario);
+    color: var(--principalClaro);
     transform: scale(1.1);
 }
 
 .how-box:hover h3{
-    color: var(--secundario);
+    color: var(--principalClaro);
 }
 
 /* ---------------------- */

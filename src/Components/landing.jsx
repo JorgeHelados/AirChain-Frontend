@@ -3,12 +3,13 @@ import '../Style/landing.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock, faBell, faMobileAlt, faCogs, faMapMarkerAlt, faGlobe, faUsers, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import video from '../Images/Video_Fondo.mp4';
+import tioFresco from '../Images/tio-respiron.jpg';
 
 function Landing() {
     return (
         <div className="landing-container">
             <section className="intro-section">
-                <video autoPlay loop muted className="background-video">
+                <video autoPlay loop muted className="background-video" alt="Video de presentación">
                     <source src={video} type="video/mp4" />
                     Tu navegador no soporta el video.
                 </video>
@@ -24,18 +25,25 @@ function Landing() {
 
             <section id="about-section" className="about-section">
                 <div className="about-container">
-                    <h1>Conectándote con un aire más limpio</h1>
-                    <p>
-                        En un entorno urbano donde la calidad del aire puede variar de una calle a otra, estar informado puede marcar la diferencia entre respirar salud o contaminación.
-                        <br /><br />
-                        Diseñado para quienes se preocupan por su bienestar, Air Chain te proporciona datos en tiempo real sobre los niveles de CO2, ozono (O3) y otros gases contaminantes, ayudándote a identificar las zonas más limpias y seguras en tu ciudad.
-                        <br /><br />
-                        Con este llavero inteligente, tendrás el control de tu entorno, optimizando tus rutas y tus decisiones diarias para mejorar tu calidad de vida y bienestar ambiental.
-                    </p>
+                    <div className="about-image">
+                        <img src={tioFresco} alt="Calidad del aire" />
+                    </div>
+                    <div className="about-text">
+                        <h1>Conectándote con un aire más limpio</h1>
+                        <p>
+                            En entornos urbanos, la calidad del aire cambia rápidamente. Air Chain te informa en tiempo real sobre ozono, dióxido de nitrógeno y otros contaminantes. Diseñado para tu bienestar, identifica zonas más limpias y seguras en la ciudad. Con este llavero inteligente, controlas tu entorno. Optimiza tus rutas y mejora tus decisiones diarias para una vida más saludable y un ambiente más limpio.
+                        </p>
+                        <button className="intro-button" onClick={() => document.getElementById('how-section').scrollIntoView({ behavior: 'smooth' })}>
+                            Conoce su funcionamiento
+                        </button>
+                    </div>
                 </div>
+
             </section>
 
-            <section className="how-section">               
+
+
+            <section id="how-section" className="how-section">               
                 <div className="how-container">
                     <h1>¿Cómo funciona?</h1> 
                     <div className="how-grid">
