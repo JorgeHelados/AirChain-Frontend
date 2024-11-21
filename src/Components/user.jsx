@@ -9,6 +9,7 @@ function App() {
     const [chartData, setChartData] = useState({ labels: [], datasets: [] });
     const [lastPpmValue, setLastPpmValue] = useState(0);
     const [tipoGas, setTipoGas] = useState('Ozono'); // Por defecto: 'Ozono'
+    const [lastMeasurementTime, setLastMeasurementTime] = useState('N/A');
 
     useEffect(() => {
         const cargarDatos = async () => {
@@ -17,10 +18,7 @@ function App() {
             if (medidas.length > 0) {
                 // Transformar los datos para el gráfico
                 const labels = medidas.map((medida) =>
-                    new Date(medida.Hora).toLocaleTimeString('es-ES', {
-                        hour: '2-digit',
-                        minute: '2-digit',
-                    })
+                    new Date(medida.Hora).toISOString().substr(11, 5)
                 );
                 const data = medidas.map((medida) => medida.Valor);
 
@@ -37,10 +35,12 @@ function App() {
                     ],
                 });
 
-                setLastPpmValue(data[data.length - 1] * 10); // Último valor multiplicado por 10
+                setLastPpmValue(data[data.length - 1]); // Último valor
+                setLastMeasurementTime(labels[labels.length - 1]); // Última hora
             } else {
                 setChartData({ labels: [], datasets: [] });
                 setLastPpmValue(0);
+                setLastMeasurementTime('N/A');
             }
         };
 
@@ -61,14 +61,21 @@ function App() {
         },
     };
 
-    let SmileyIcon;
-    if (lastPpmValue >= 100) {
-        SmileyIcon = <FaFrown color="red" size={70} />;
-    } else if (lastPpmValue >= 50) {
-        SmileyIcon = <FaMeh color="orange" size={70} />;
-    } else {
-        SmileyIcon = <FaSmile color="limegreen" size={70} />;
-    }
+    const getSmileyIcon = () => {
+        if (tipoGas === 'Ozono') {
+            if (lastPpmValue > 8.5) return <FaFrown color="red" size={70} />;
+            if (lastPpmValue >= 5.5) return <FaMeh color="orange" size={70} />;
+            return <FaSmile color="limegreen" size={70} />;
+        } else if (tipoGas === 'Dioxido de Nitrogeno') {
+            if (lastPpmValue > 10.1) return <FaFrown color="red" size={70} />;
+            if (lastPpmValue >= 2.1) return <FaMeh color="orange" size={70} />;
+            return <FaSmile color="limegreen" size={70} />;
+        } else if (tipoGas === 'Monoxido de Carbono') {
+            if (lastPpmValue > 1500) return <FaFrown color="red" size={70} />;
+            if (lastPpmValue >= 201) return <FaMeh color="orange" size={70} />;
+            return <FaSmile color="limegreen" size={70} />;
+        }
+    };
 
     return (
         <div className="app-container">
@@ -110,8 +117,8 @@ function App() {
                             <option value="Monoxido de Carbono">Monóxido de Carbono</option>
                         </select>
                     </div>
-                    <p>Hora de la última medición: "La Hora"</p>
-                    <div className="smiley">{SmileyIcon}</div>
+                    <p>Hora de la última medición: {lastMeasurementTime}</p>
+                    <div className="smiley">{getSmileyIcon()}</div>
                     <p className="ppm">{lastPpmValue} ppm</p>
                 </div>
             </div>

@@ -1,6 +1,5 @@
 // Grafica.js
-
-const API_URL = 'http://192.168.1.104:4000';
+const API_URL = 'http://192.168.156.173:4000';
 
 /**
  * @brief Obtiene las mediciones de un gas específico desde la base de datos.
@@ -21,4 +20,5 @@ export const obtenerMedidas = async (tipoGas) => {
         return [];
     }
 };
+
 
