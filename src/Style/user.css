@@ -50,7 +50,7 @@
 }
 
 .pair-button:hover {
-  background-color: var(--principalClaro);
+  background-color: var(--secundario);
 }
 
 /* ------------- */
