@@ -21,4 +21,23 @@ export const obtenerMedidas = async (tipoGas) => {
         return [];
     }
 };
+export const enlazarSensor= async (etiqueta, id_usuario) => {
+    try {
+        const response = await fetch(`${API_URL}/api/gases/sensor/${etiqueta}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id_usuario })
+        });
+        if (!response.ok) {
+            throw new Error('Error al enlazar el sensor');
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error:', error);
+        return null;
+    }
+}
 

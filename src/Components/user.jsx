@@ -4,12 +4,33 @@ import { FaSmile, FaMeh, FaFrown } from 'react-icons/fa';
 import 'chart.js/auto';
 import '../Style/user.css';
 import { obtenerMedidas } from '../js/grafica.js';
+import { enlazarSensor } from '../js/grafica.js';
+import { cargarDatosPerfil } from '../js/miPerfil.js';
 
 function App() {
     const [chartData, setChartData] = useState({ labels: [], datasets: [] });
     const [lastPpmValue, setLastPpmValue] = useState(0);
     const [tipoGas, setTipoGas] = useState('Ozono'); // Por defecto: 'Ozono'
+    const [idUsuario, setIdUsuario] = useState(null); // Estado para el ID del usuario
+    const [codigoSerie, setCodigoSerie] = useState(''); // Estado para el código de serie del sensor
+    const correo = sessionStorage.getItem('usuarioCorreo'); // Obtener correo desde sessionStorage
 
+    // Cargar perfil y obtener ID de usuario
+    useEffect(() => {
+        const cargarPerfil = async () => {
+            if (correo) {
+                const perfil = await cargarDatosPerfil(correo);
+                if (perfil && perfil.id) {
+                    setIdUsuario(perfil.id);
+                } else {
+                    console.error('No se pudo cargar el perfil del usuario.');
+                }
+            }
+        };
+        cargarPerfil();
+    }, [correo]);
+
+    // Cargar datos para el gráfico
     useEffect(() => {
         const cargarDatos = async () => {
             const medidas = await obtenerMedidas(tipoGas);
@@ -47,6 +68,30 @@ function App() {
         cargarDatos();
     }, [tipoGas]);
 
+    // Método para enlazar sensor
+    const handleEnlazarSensor = async () => {
+        if (!codigoSerie) {
+            alert('Por favor, introduce un código de serie.');
+            return;
+        }
+        if (!idUsuario) {
+            alert('No se pudo obtener el ID del usuario. Revisa tu perfil.');
+            return;
+        }
+
+        try {
+            const resultado = await enlazarSensor(codigoSerie, idUsuario); // Llama al método para enlazar
+            if (resultado.success) {
+                alert('Sensor enlazado exitosamente.');
+            } else {
+                alert(`Error al enlazar el sensor: ${resultado.error}`);
+            }
+        } catch (error) {
+            console.error('Error al enlazar el sensor:', error);
+            alert('Ocurrió un error al intentar enlazar el sensor.');
+        }
+    };
+
     const options = {
         responsive: true,
         plugins: {
@@ -80,8 +125,10 @@ function App() {
                     id="key-code" 
                     placeholder="Código de serie" 
                     className="key-input" 
+                    value={codigoSerie}
+                    onChange={(e) => setCodigoSerie(e.target.value)}
                 />
-                <button className="pair-button">Emparejar</button>
+                <button className="pair-button" onClick={handleEnlazarSensor}>Emparejar</button>
             </div>
     
             {/* Gráfica y caritas */}
