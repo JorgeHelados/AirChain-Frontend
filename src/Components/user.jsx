@@ -16,13 +16,15 @@ function App() {
     const [codigoSerie, setCodigoSerie] = useState(''); // Estado para el código de serie del sensor
     const correo = sessionStorage.getItem('usuarioCorreo'); // Obtener correo desde sessionStorage
 
-    // Cargar perfil y obtener ID de usuario
     useEffect(() => {
         const cargarPerfil = async () => {
             if (correo) {
                 const perfil = await cargarDatosPerfil(correo);
-                if (perfil && perfil.id) {
-                    setIdUsuario(perfil.id);
+
+                console.log(perfil.ID_Usuarios);
+                
+                if (perfil.ID_Usuarios !== undefined) {
+                    setIdUsuario(perfil.ID_Usuarios); // Correcto: acceder a perfil.ID_Usuarios
                 } else {
                     console.error('No se pudo cargar el perfil del usuario.');
                 }
@@ -30,6 +32,7 @@ function App() {
         };
         cargarPerfil();
     }, [correo]);
+    
 
     // Cargar datos para el gráfico
     useEffect(() => {
