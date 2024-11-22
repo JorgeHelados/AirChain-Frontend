@@ -4,7 +4,7 @@
 // Emilio Sánchez Granado
 // 28/10/2024
 //--------------------------------------------------
-const apiBaseUrl = 'http://192.168.183.173:4000/';
+const apiBaseUrl = 'http://192.168.156.173:4000/';
 
 /**
  * Carga los datos del perfil de un usuario mediante una solicitud GET a la API.

@@ -84,3 +84,8 @@
     background-color: var(--secundario);
   }
   
+  .texto-rojo {
+    color: red;
+    font-weight: bold;
+  }
+  

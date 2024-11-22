@@ -25,6 +25,7 @@ function App() {
                 
                 if (perfil.ID_Usuarios !== undefined) {
                     setIdUsuario(perfil.ID_Usuarios); // Correcto: acceder a perfil.ID_Usuarios
+
                 } else {
                     console.error('No se pudo cargar el perfil del usuario.');
                 }
