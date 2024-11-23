@@ -12,12 +12,19 @@ function Login() {
         setError(''); // Limpiar errores previos
 
         try {
+            // Verificar credenciales para el admin
+            if (email === 'admin@gmail.com' && contrasenya === '1234') {
+                alert('Inicio de sesión como administrador');
+                window.location.href = "admin"; // Redirigir a admin.jsx
+                return;
+            }
+
             const response = await iniciarSesion(email, contrasenya);
             if (response) {
                 alert('Inicio de sesión exitoso');
                 console.log(response);
                 // Redirigir a otra página, por ejemplo
-                window.location.href = "perfil";
+                window.location.href = "user";
             }
         } catch (error) {
             setError('Correo o contraseña incorrectos'); // Mostrar error
