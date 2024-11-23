@@ -38,77 +38,33 @@ export async function cargarDatosPerfil(correo) {
 }
 
 /**
- * Actualiza el nombre, apellidos y teléfono de un usuario mediante una solicitud PUT a la API.
- *
- * @function actualizarNombreApellidos
- * @param {string} correo - El correo del usuario para identificar su perfil.
- * @param {string} nombre - El nuevo nombre del usuario.
- * @param {string} apellidos - Los nuevos apellidos del usuario.
- * @param {string} telefono - El nuevo número de teléfono del usuario.
- * @throws {Error} Si la solicitud falla o el servidor responde con un estado de error.
- * @verbatim
- * Ejemplo de uso:
- * 
- * actualizarNombreApellidos('usuario@example.com', 'Juan', 'Pérez', '1234567890')
- *   .then(() => console.log('Actualización exitosa'))
- *   .catch(error => console.error(error));
- * @endverbatim
+ * @brief Actualizar el nombre, apellidos y teléfono del usuario.
+ * @param {string} id - ID del usuario.
+ * @param {string} nombre - Nuevo nombre del usuario.
+ * @param {string} apellidos - Nuevos apellidos del usuario.
+ * @param {string} telefono - Nuevo teléfono del usuario.
+ * @returns {Promise<object>} Respuesta de la API.
  */
-
-//---------------------------------------------------------------
-// string, string, string, string -> actualizarNombreApellidos()
-//---------------------------------------------------------------
-export async function actualizarNombreApellidos(correo, nombre, apellidos, telefono) {
-    console.log(nombre);
-    console.log(apellidos);
+export async function actualizarPerfil(id, nombre, apellidos, telefono) {
     try {
-        const response = await fetch(`${apiBaseUrl}api/gases/usuario`, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ Correo: correo, Nombre: nombre, Apellidos: apellidos, Telefono: telefono }),
-        });
-
-        if (!response.ok) throw new Error('Error al actualizar el nombre');
-        alert("Nombre y apellidos actualizados exitosamente"); // Muestra mensaje de éxito.
+      const response = await fetch(`${apiBaseUrl}/usuarios/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ nombre, apellidos, telefono }),
+      });
+  
+      if (!response.ok) {
+        throw new Error("Error al actualizar el perfil");
+      }
+      return await response.json();
     } catch (error) {
-        console.error('Error:', error);
+      console.error("Error en actualizarPerfil:", error);
+      throw error;
     }
-}
-
-
-/**
- * Actualiza el número de teléfono de un usuario mediante una solicitud PUT a la API.
- *
- * @function actualizarTelefono
- * @param {string} correo - El correo del usuario para identificar su perfil.
- * @param {string} telefono - El nuevo número de teléfono del usuario.
- * @throws {Error} Si la solicitud falla o el servidor responde con un estado de error.
- * @verbatim
- * Ejemplo de uso:
- * 
- * actualizarTelefono('usuario@example.com', '1234567890')
- *   .then(() => console.log('Teléfono actualizado'))
- *   .catch(error => console.error(error));
- * @endverbatim
- */
-
-//--------------------------------------
-// string, string -> actualizarTelefono()
-//--------------------------------------
-export async function actualizarTelefono(correo, telefono) {
-    try {
-        const response = await fetch(`${apiBaseUrl}api/gases/usuario/telefono/${encodeURIComponent(correo)}`, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ Telefono: telefono }),
-        });
-
-        if (!response.ok) throw new Error('Error al actualizar el teléfono');
-        alert("Número de teléfono actualizado exitosamente"); // Muestra mensaje de éxito.
-    } catch (error) {
-        console.error('Error:', error);
-    }
-}
+  }
+  
 
 /**
  * Cambia la contraseña de un usuario mediante una solicitud PUT a la API.
