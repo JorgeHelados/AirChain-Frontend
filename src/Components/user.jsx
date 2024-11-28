@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Line } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 import { FaSmile, FaMeh, FaFrown } from 'react-icons/fa';
 import 'chart.js/auto';
 import { Chart as ChartJS } from 'chart.js';
@@ -51,6 +51,11 @@ function App() {
                 {
                     label: tipoGas,
                     data: selectedGasData.map((medida) => medida.Valor),
+
+                    backgroundColor: tipoGas === 'Ozono' ? '#009592' :
+                                      tipoGas === 'Dioxido de Nitrogeno' ? '#009592' :
+                                      '#009592',
+
                     borderColor: tipoGas === 'Ozono' ? '#009592' :
                                  tipoGas === 'Dioxido de Nitrogeno' ? '#FF5733' :
                                  '#FFC300',
@@ -232,7 +237,7 @@ function App() {
             <div className="content">
                 <div className="chart-container">
                     {chartData.labels.length > 0 ? (
-                        <Line data={chartData} options={options} />
+                        <Bar data={chartData} options={options} />
                     ) : (
                         <div className="loading-wave">
                             <div className="loading-bar"></div>
