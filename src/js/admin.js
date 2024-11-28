@@ -1,4 +1,4 @@
-const API_URL = "http://192.168.156.173:4000";
+const API_URL = "http://192.168.1.28:4000";
 
 // Función para calcular el tiempo transcurrido
 export function calcularTiempoDesconectado(horaUltimaMedida) {
