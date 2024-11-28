@@ -4,7 +4,7 @@
 // Emilio Sánchez Granado
 // 28/10/2024
 //--------------------------------------------------
-const apiBaseUrl = 'http://192.168.156.173:4000/';
+const apiBaseUrl = 'http://192.168.1.28:4000/';
 
 /**
  * Carga los datos del perfil de un usuario mediante una solicitud GET a la API.
@@ -38,32 +38,33 @@ export async function cargarDatosPerfil(correo) {
 }
 
 /**
- * @brief Actualizar el nombre, apellidos y teléfono del usuario.
- * @param {string} id - ID del usuario.
- * @param {string} nombre - Nuevo nombre del usuario.
- * @param {string} apellidos - Nuevos apellidos del usuario.
- * @param {string} telefono - Nuevo teléfono del usuario.
- * @returns {Promise<object>} Respuesta de la API.
+ * Actualiza los datos del perfil de un usuario mediante una solicitud PUT a la API.
+ *
+ * @function actualizarPerfil
+ * @param {string} id - El ID único del usuario.
+ * @param {string} nombre - El nuevo nombre del usuario.
+ * @param {string} apellidos - Los nuevos apellidos del usuario.
+ * @param {string} telefono - El nuevo número de teléfono del usuario.
+ * @returns {Promise<Object>} Objeto con los datos actualizados del usuario.
+ * @throws {Error} Si la solicitud falla o el servidor responde con un estado de error.
  */
-export async function actualizarPerfil(id, nombre, apellidos, telefono) {
-    try {
-      const response = await fetch(`${apiBaseUrl}/usuarios/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ nombre, apellidos, telefono }),
-      });
+export async function actualizarPerfil(correo, nombre, apellidos, telefono) {
+  try {
+    const response = await fetch(`${apiBaseUrl}api/gases/usuario`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ Correo: correo, Nombre: nombre, Apellidos: apellidos, Telefono: telefono }),
+    });
+
+    if (!response.ok) throw new Error('Error al actualizar el nombre');
+    alert("Nombre y apellidos actualizados exitosamente");
+} catch (error) {
+    console.error('Error:', error);
+}
+}
+
   
-      if (!response.ok) {
-        throw new Error("Error al actualizar el perfil");
-      }
-      return await response.json();
-    } catch (error) {
-      console.error("Error en actualizarPerfil:", error);
-      throw error;
-    }
-  }
+  
   
 
 /**
