@@ -1,0 +1,69 @@
+/* GENERAL */
+.historico-container {
+    background-color: var(--gris);
+    color: var(--principal);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 78vh;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* ------- */
+/* FILTROS */
+/* ------- */
+.filtros-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo común para los selectores y campos de fecha */
+.filtros-container select,
+.filtros-container input[type="date"] {
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    border: 2px solid var(--blanco);
+    background: var(--gris);
+    color: var(--blanco);
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filtros-container select:hover,
+.filtros-container input[type="date"]:hover {
+    border-color: var(--principalClaro);
+    box-shadow: 0 0 10px rgba(0, 204, 221, 0.5);
+}
+
+/* Contenedor de fechas */
+.fecha-container {
+    display: flex;
+    gap: 10px;
+}
+
+/* ------- */
+/* GRAFICA */
+/* ------- */
+.grafica-container {
+    background-color: var(--negro);
+    border-radius: 10px;
+    width: 50%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .grafica-container {
+        width: 90%; /* Asegura que la gráfica ocupe más espacio en pantallas pequeñas */
+    }
+}
