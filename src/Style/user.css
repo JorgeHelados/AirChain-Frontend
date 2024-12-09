@@ -3,11 +3,11 @@
   background-color: var(--gris);
   color: var(--principal);
   display: flex;
-  flex-direction: column; /* Organiza en filas */
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 78vh;
-  gap: 20px; /* Espacio entre filas */
+  height: 85vh; /* Ocupa toda la altura del viewport */
+  gap: 20px;
 }
 
 /* --------------- */
@@ -69,8 +69,15 @@
 .air-quality-container {
   background-color: var(--negro);
   border-radius: 10px;
-  width: 50%;
+  width: 80%;
   padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.air-quality-container {
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -79,7 +86,7 @@
 /* Contenedor de la gráfica */
 .chart-container {
   background-color: var(--blanco); /* Fondo blanco para la gráfica */
-  height: 310px;
+  height: 330px;
 }
 
 .chart-container p {
@@ -135,7 +142,7 @@
 /* ---------------------- */
 /* CARITAS Y SELECTOR GAS */
 /* ---------------------- */
-.air-quality-container p {
+.air-quality-container .texto-promedio {
   font-size: 1.5rem;
   color: var(--blanco);
 }
@@ -154,9 +161,9 @@
 
 /* Selector de gas */
 .gas-selector select {
-  width: 100%;
-  padding: 10px 15px;
-  font-size: 1.2rem;
+  width: 80%;
+  padding: 7px 15px;
+  font-size: 1rem;
   border-radius: 10px;
   border: 2px solid var(--blanco);
   background: var(--gris);
@@ -165,15 +172,49 @@
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Sin esto el selector de gas no ocupa el 100% no se porque */
 .gas-selector {
   width: 100%; 
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.gas-datos{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ultimos-gases{
+  display: flex;
+  align-items: center;
+  gap: 50px;
 }
 
 .gas-selector select:hover {
   border-color: var(--principalClaro);
   box-shadow: 0 0 10px rgba(0, 204, 221, 0.5);
+}
+
+.texto-cuidado {
+  font-size: 1rem; 
+  color: var(--blanco); 
+  text-align: center; 
+}
+
+.btn-historico{
+  width: 50%;
+  padding: 9px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--principal);
+  color: var(--blanco);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-historico:hover {
+  background-color: var(--secundario);
 }

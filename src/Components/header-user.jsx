@@ -15,7 +15,6 @@ const Header_User = () => {
       <nav>
         <ul className="nav-links">
           <li><a href="/">Inicio</a></li>
-          <li><a href="/historico">Historial de mediciones</a></li>
           <li><a href="/contacto">Contacto</a></li>
           <li><a href="/user">Mis mediciones</a></li>
           <li>
