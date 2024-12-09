@@ -83,12 +83,10 @@ function App() {
 
             const valores = medidas.map((medida) => medida.Valor);
 
-            // Promedio de las últimas 8 horas
             const promedio = valores.slice(-8).reduce((sum, val) => sum + val, 0) / Math.min(8, valores.length);
             setAveragePpm(promedio);
 
 
-            // Actualizar las últimas mediciones de todos los gases
             const newLastPpmValues = {};
             gases.forEach((gas, index) => {
                 const lastValue = allData[index]?.slice(-1)[0] || { Valor: 0 };
@@ -96,7 +94,6 @@ function App() {
             });
             setLastPpmValues(newLastPpmValues);
 
-            // Actualizar la última hora de medición del gas seleccionado
             if (selectedGasData.length > 0) {
                 const lastValue = selectedGasData[selectedGasData.length - 1];
                 setLastMeasurementTime(new Date(lastValue.Hora).toISOString().substr(11, 5));
@@ -200,7 +197,7 @@ function App() {
     return (
         <div className="app-container">
             {/* Enlazar llavero */}
-            <div className="link-key-container">
+            {/* <div className="link-key-container">
                 <label htmlFor="key-code" className="key-label">Enlazar llavero:</label>
                 <input
                     type="text"
@@ -211,26 +208,26 @@ function App() {
                     onChange={(e) => setCodigoSerie(e.target.value)}
                 />
                 <button className="pair-button" onClick={handleEnlazarSensor}>Emparejar</button>
-            </div>
-
-            {/* Últimas mediciones */}
-            <div className="last-measurements">
-                <p>Hora de la última medición: {lastMeasurementTime}</p>
-                <p>Ozono: {lastPpmValues['Ozono']} ppm</p>
-                <p>Dióxido de Nitrógeno: {lastPpmValues['Dioxido de Nitrogeno']} ppm</p>
-                <p>Monóxido de Carbono: {lastPpmValues['Monoxido de Carbono']} ppm</p>
-            </div>
+            </div> */}
 
             {/* Selector de gas */}
-            <div className="gas-selector">
-                <select
-                    value={tipoGas}
-                    onChange={(e) => setTipoGas(e.target.value)}
-                >
-                    <option value="Ozono">Ozono</option>
-                    <option value="Dioxido de Nitrogeno">Dióxido de Nitrógeno</option>
-                    <option value="Monoxido de Carbono">Monóxido de Carbono</option>
-                </select>
+            <div className="gas-datos">                    
+                <p>Hora de la última medición: {lastMeasurementTime}</p>
+                <div className='ultimos-gases'>
+                    <p>Ozono: {lastPpmValues['Ozono']} ppm</p>
+                    <p>Dióxido de Nitrógeno: {lastPpmValues['Dioxido de Nitrogeno']} ppm</p>
+                    <p>Monóxido de Carbono: {lastPpmValues['Monoxido de Carbono']} ppm</p>
+                </div>
+                <div className='gas-selector'>                
+                    <select
+                        value={tipoGas}
+                        onChange={(e) => setTipoGas(e.target.value)}
+                        >
+                        <option value="Ozono">Ozono</option>
+                        <option value="Dioxido de Nitrogeno">Dióxido de Nitrógeno</option>
+                        <option value="Monoxido de Carbono">Monóxido de Carbono</option>
+                    </select>
+                    <a className="btn-historico" href="/historico">Ver historico de mediociones</a></div>
             </div>
 
             {/* Gráfica y caritas */}
@@ -249,13 +246,14 @@ function App() {
                     <p>Medición diaria</p>
                 </div>
                 <div className="air-quality-container">
-                    <p>Promedio 8 horas</p>
+                    <p className='texto-promedio'>Promedio 8 horas</p>
                     <div className="smiley">{getSmileyIcon()}</div>
                     <p className="ppm">{averagePpm.toFixed(2)} ppm</p>
+                    <p className="texto-cuidado">Texto para tener cuidado de que has pasado por una zona bien pero ligeramente contaminado</p>
                 </div>
-                <div className="Boton-Historico">
-                    <a className="header-button" href="/perfil"> Histórico</a>
-                </div>
+            </div>
+            <div>
+
             </div>
         </div>
     );

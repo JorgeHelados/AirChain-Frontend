@@ -5,7 +5,7 @@
   align-items: center;
   background-color: var(--negro);
   color: var(--blanco);
-  padding: 5px 20px;
+  padding: 0 20px;
 }
 
 /* Hacemos el header sticky solo para el Header_Admin */
