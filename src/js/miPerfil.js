@@ -48,6 +48,9 @@ export async function cargarDatosPerfil(correo) {
  * @returns {Promise<Object>} Objeto con los datos actualizados del usuario.
  * @throws {Error} Si la solicitud falla o el servidor responde con un estado de error.
  */
+//---------------------------------------------------------------
+// string, string, string, string -> cambiarContrasena()
+//---------------------------------------------------------------
 export async function actualizarPerfil(correo, nombre, apellidos, telefono) {
   try {
     const response = await fetch(`${apiBaseUrl}api/gases/usuario`, {
@@ -85,7 +88,7 @@ export async function actualizarPerfil(correo, nombre, apellidos, telefono) {
  */
 
 //---------------------------------------------------------------
-// string, string, string -> actualizarNombreApellidos()
+// string, string, string -> cambiarContrasena()
 //---------------------------------------------------------------
 export async function cambiarContrasena(correo, contrasenaActual, contrasenaNueva) {
     try {

@@ -1,6 +1,24 @@
+
 const API_URL = "http://192.168.1.28:4000";
 
-// Función para calcular el tiempo transcurrido
+/**
+ * @brief Calcula el tiempo que un sensor ha estado desconectado desde su última medida.
+ * 
+ * Esta función calcula la diferencia de tiempo entre la fecha/hora actual y la última 
+ * medida registrada de un sensor. La diferencia se convierte en días, horas y minutos.
+ * 
+ * @param {string} horaUltimaMedida - Fecha y hora de la última medida en formato ISO (ejemplo: "2024-12-09T12:00:00Z").
+ * @returns {string} - Una cadena que indica el tiempo transcurrido en formato "Xd Xh Xm", o "Desconocido" si la entrada no es válida.
+ * 
+ * @example
+ * // Calcular el tiempo desconectado desde una fecha específica:
+ * const tiempo = calcularTiempoDesconectado("2024-12-08T15:30:00Z");
+ * console.log(tiempo); // Ejemplo de salida: "1d 2h 15m"
+ */
+
+//--------------------------------------
+// string -> calcularTiempoDesconectado() -> string
+//--------------------------------------
 export function calcularTiempoDesconectado(horaUltimaMedida) {
   const ultimaMedida = new Date(horaUltimaMedida); // Convierte a fecha
   const ahora = new Date(); // Fecha/hora actual
@@ -16,7 +34,32 @@ export function calcularTiempoDesconectado(horaUltimaMedida) {
   return `${dias > 0 ? `${dias}d ` : ""}${horas > 0 ? `${horas}h ` : ""}${minutos}m`;
 }
 
-// Función para obtener datos de sensores
+
+/**
+ * @brief Obtiene datos de los sensores desde la API y los enriquece con el tiempo desconectado.
+ * 
+ * Esta función realiza una solicitud a la API para obtener datos administrativos de los sensores, 
+ * y para cada sensor calcula el tiempo que ha estado desconectado desde su última medida.
+ * 
+ * @async
+ * @returns {Array<Object>} - Un arreglo de objetos con los datos de los sensores enriquecidos, incluyendo el tiempo desconectado.
+ * 
+ * @throws {Error} - Lanza un error si ocurre un problema al obtener los datos de la API.
+ * 
+ * @example
+ * // Obtener y procesar datos de sensores:
+ * const sensores = await obtenerDatosSensores();
+ * console.log(sensores);
+ * // Ejemplo de salida:
+ * // [
+ * //   { ID_Sensor: 1, Propietario: "Juan", Ultima_Medida: "2d 3h 15m", Ozono: 50, Dioxido_Nitrogeno: 30, Monoxido_Carbono: 20 },
+ * //   ...
+ * // ]
+ */
+
+//--------------------------------------
+// obtenerDatosSensores() -> Lista<OBJ>
+//--------------------------------------
 export async function obtenerDatosSensores() {
   try {
     const response = await fetch(`${API_URL}/api/gases/datosAdmin`);

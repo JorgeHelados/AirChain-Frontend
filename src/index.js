@@ -23,6 +23,9 @@ import User from './Components/user';
 import Historico from './Components/historico';
 import Perfil from './Components/perfil';
 import Admin from './Components/admin';
+
+import Mapas from './Components/mapas';
+
  
 import reportWebVitals from './reportWebVitals';
 
@@ -30,7 +33,9 @@ import reportWebVitals from './reportWebVitals';
 const Header = () => {
   const location = useLocation(); // Obtener la ubicación actual
 
-  const isUserPage = location.pathname === '/user' || location.pathname === '/perfil' || location.pathname === '/historico';
+
+  const isUserPage = location.pathname === '/user' || location.pathname === '/perfil' || location.pathname === '/historico' || location.pathname === '/mapas';
+
   const isAdminPage = location.pathname === '/admin';
 
   return (
@@ -61,6 +66,9 @@ const MainApp = () => {
           <Route path="/user" element={<User />} /> 
           <Route path="/historico" element={<Historico />} /> 
           <Route path="/admin" element={<Admin />} /> 
+
+
+          <Route path="/mapas" element={<Mapas />} /> 
 
         </Routes>
       <Footer />
