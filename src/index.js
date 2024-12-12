@@ -23,6 +23,7 @@ import User from './Components/user';
 import Historico from './Components/historico';
 import Perfil from './Components/perfil';
 import Admin from './Components/admin';
+import Enlace from './Components/enlace_solicitud';
 
 import Mapas from './Components/mapas';
 
@@ -66,6 +67,7 @@ const MainApp = () => {
           <Route path="/user" element={<User />} /> 
           <Route path="/historico" element={<Historico />} /> 
           <Route path="/admin" element={<Admin />} /> 
+          <Route path="/enlazar" element={<Enlace />} /> 
 
 
           <Route path="/mapas" element={<Mapas />} /> 

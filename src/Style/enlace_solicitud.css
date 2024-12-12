@@ -1,0 +1,89 @@
+.enlazar-container {
+    background-color: var(--gris);
+    color: var(--negro);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 80vh;
+}
+
+/* Título principal */
+.enlazar-title {
+    padding: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--principal);
+    text-align: center;
+}
+
+/* Contenedor general */
+.enlazar-content {
+    display: flex;
+    justify-content: space-around; /* Espaciado uniforme entre las cajas */
+    width: 75%; /* Ocupar todo el ancho disponible */
+}
+
+/* Contenedor de cada sección */
+.sensor-box {
+    background-color: var(--negro);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos de los formularios */
+.sensor-box h2 {
+    color: var(--principal);
+    font-size: 1.75rem;
+}
+
+/* Inputs */
+.sensor-input {
+    padding: 15px;
+    width: 94%;
+    border-radius: 5px;
+    border: 1px solid var(--grisOscuro);
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+/* Contenedor de los inputs en fila */
+.input-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.sensor-input.small-input {
+    width: 45%; 
+}
+
+/* Botones */
+.sensor-button {
+    padding: 15px 30px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--principal);
+    color: var(--blanco);
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+
+.sensor-button:hover {
+    background-color: var(--secundario);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .enlazar-content {
+        flex-direction: column; /* Apilar cajas en pantallas pequeñas */
+        align-items: center;
+    }
+
+    .sensor-box {
+        max-width: 100%; /* Ocupar todo el ancho disponible */
+        margin-bottom: 40px;
+    }
+}
