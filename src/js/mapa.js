@@ -16,18 +16,22 @@ const API_URL = "http://192.168.83.173:4000";
 //--------------------------------------
 // string -> obtenerMedidas() -> string
 //--------------------------------------
+//--------------------------------------
+// string -> obtenerMedidas() -> string
+//--------------------------------------
 export const obtenerMedidas = async (tipoGas) => {
-  try {
-      const response = await fetch(`${API_URL}/api/gases/medidas?Gas=${tipoGas}`);
-      if (!response.ok) {
-          throw new Error('Error al obtener las medidas de gases');
-      }
-      const data = await response.json();
-      return data;
-  } catch (error) {
-      console.error('Error:', error);
-      return [];
-  }
+    try {
+        const response = await fetch(`${API_URL}/api/gases/medidas`);
+        if (!response.ok) {
+            throw new Error('Error al obtener las medidas');
+        }
+        const data = await response.json();
+        // Filtrar los datos por tipo de gas
+        return data.filter((medida) => medida.Gas === tipoGas);
+    } catch (error) {
+        console.error('Error:', error);
+        return [];
+    }
 };
 
 /**
@@ -72,6 +76,21 @@ export const calcularMediaPorCoordenadas = (medidas) => {
         Gas,
         ValorMedio: suma / count,
     }));
+};
+
+
+//--------------------------------------
+// string, int -> getColorByValor() -> string
+//--------------------------------------
+export const getColorByValor = (gas, valor) => {
+    if (gas === 'Ozono') {
+        return valor <= 7 ? 'green' : valor <= 10.5 ? 'yellow' : 'red';
+    } else if (gas === 'Dioxido de Nitrogeno') {
+        return valor <= 5 ? 'green' : valor <= 15 ? 'yellow' : 'red';
+    } else if (gas === 'Monoxido de Carbono') {
+        return valor <= 9 ? 'green' : valor <= 30 ? 'yellow' : 'red';
+    }
+    return 'gray';
 };
 
   
