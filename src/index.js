@@ -35,7 +35,7 @@ const Header = () => {
   const location = useLocation(); // Obtener la ubicación actual
 
 
-  const isUserPage = location.pathname === '/user' || location.pathname === '/perfil' || location.pathname === '/historico' || location.pathname === '/mapas';
+  const isUserPage = location.pathname === '/user' || location.pathname === '/perfil' || location.pathname === '/historico' || location.pathname === '/mapas' || location.pathname === '/enlazar';
 
   const isAdminPage = location.pathname === '/admin';
 
