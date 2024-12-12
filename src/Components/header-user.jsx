@@ -16,6 +16,7 @@ const Header_User = () => {
         <ul className="nav-links">
           <li><a href="/">Inicio</a></li>
           <li><a href="/contacto">Contacto</a></li>
+          <li><a href="/mapas">Mapas</a></li>
           <li><a href="/user">Mis mediciones</a></li>
           <li>
             <button className="header-button" href="/perfil"><FaUser style={{ marginRight: '5px' }} /> Mi perfil</button>

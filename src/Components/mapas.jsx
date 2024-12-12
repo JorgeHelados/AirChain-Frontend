@@ -4,6 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import 'leaflet.markercluster/dist/leaflet.markercluster';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 import { obtenerMedidas, calcularMediaPorCoordenadas } from '../js/mapa.js';
+import '../Style/mapas.css';
 
 const Mapas = () => {
     const [gasSeleccionado, setGasSeleccionado] = useState('Ozono'); // Gas por defecto
@@ -20,7 +21,7 @@ const Mapas = () => {
 
         // Obtiene las medidas del gas seleccionado
         const medidas = await obtenerMedidas(tipoGas);
-        console.log(medidas);
+
         // Calcula los valores medios por coordenadas
         const medidasConMedias = calcularMediaPorCoordenadas(medidas);
 
@@ -53,8 +54,26 @@ const Mapas = () => {
                 mapRef.current.removeLayer(clusterRefs.current[gas]);
             } 
             mapRef.current.addLayer(clusterRefs.current[gas]);
-            
         });
+    };
+
+    // Leyenda del mapa
+    const agregarLeyenda = () => {
+        const leyenda = L.control({ position: 'bottomright' });
+
+        leyenda.onAdd = () => {
+            const div = L.DomUtil.create('div', 'info legend');
+            div.innerHTML = `
+                <h4>Leyenda</h4>
+                <!-- Cambiar esto si se tienen que hacer cambios en la leyenda -->
+                <i style="background: blue;"></i> Ozono (O₃)<br>
+                <i style="background: red;"></i> Dióxido de Nitrógeno (NO₂)<br>
+                <i style="background: green;"></i> Monóxido de Carbono (CO)<br>
+            `;
+            return div;
+        };
+
+        leyenda.addTo(mapRef.current);
     };
 
     useEffect(() => {
@@ -65,6 +84,9 @@ const Mapas = () => {
                 maxZoom: 19,
                 attribution: '© OpenStreetMap contributors',
             }).addTo(mapRef.current);
+
+            // Agrega la leyenda después de inicializar el mapa
+            agregarLeyenda();
         }
 
         return () => {
@@ -88,7 +110,7 @@ const Mapas = () => {
 
     return (
         <div>
-            <div style={{ padding: '10px', backgroundColor: '#f4f4f4', textAlign: 'center' }}>
+            <div className='elegir-gas'>
                 <label htmlFor="selector-gas">Selecciona un gas: </label>
                 <select
                     id="selector-gas"
@@ -99,8 +121,10 @@ const Mapas = () => {
                     <option value="Dioxido de Nitrogeno">Dióxido de Nitrógeno (NO₂)</option>
                     <option value="Monoxido de Carbono">Monóxido de Carbono (CO)</option>
                 </select>
+                <button>Estaciones oficiales</button>
             </div>
-            <div id="map" style={{ height: '90vh' }}></div>
+            <div id="map" style={{ height: '73vh' }}>
+            </div>
         </div>
     );
 };

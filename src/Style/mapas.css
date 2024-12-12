@@ -1,0 +1,83 @@
+.elegir-gas{
+    width: 100%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: var(--gris);
+    padding: 5px 0;
+}
+
+/* --------------- */
+/* SELECTOR DE GAS */
+/* --------------- */
+.elegir-gas select{
+    width: 30%;
+    padding: 7px 15px;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 2px solid var(--blanco);
+    background: var(--gris);
+    color: var(--blanco);
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.elegir-gas select:hover {
+    border-color: var(--principalClaro);
+    box-shadow: 0 0 10px rgba(0, 204, 221, 0.5);
+}
+
+/* ----- */
+/* TEXTO */
+/* ----- */
+.elegir-gas label{
+    font-size: 1.1rem;
+    color: var(--blanco);
+}
+
+/* ----- */
+/* BOTON */
+/* ----- */
+.elegir-gas button{
+    width: 15%;
+    padding: 9px 15px;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--principal);
+    color: var(--blanco);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.elegir-gas button:hover {
+    background-color: var(--secundario);
+}
+  
+/* ------------ */
+/* LEYENDA MAPA */
+/* ------------ */
+.info.legend {
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.info.legend h4 {
+    margin: 0 0 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.info.legend i {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    border-radius: 3px;
+}
