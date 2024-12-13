@@ -9,6 +9,7 @@ import HeaderUser from './Components/header-user';
 import HeaderAdmin from './Components/header-admin'; 
 import HeaderFake from './Components/header-fake'; 
 import Footer from './Components/footer';
+import FooterFake from './Components/footer-fake';
 
 import Landing from './Components/landing';
 import Login from './Components/login';
@@ -29,13 +30,11 @@ import Enlace from './Components/enlace_solicitud';
 import Mapas from './Components/mapas';
 import MapasFake from './Components/mapa-fake';
 
- 
 import reportWebVitals from './reportWebVitals';
 
 // Selector de header respecto de la pagina
 const Header = () => {
   const location = useLocation(); // Obtener la ubicación actual
-
 
   const isUserPage = location.pathname === '/user' || location.pathname === '/perfil' || location.pathname === '/historico' || location.pathname === '/mapas' || location.pathname === '/enlazar';
 
@@ -50,35 +49,46 @@ const Header = () => {
   );
 };
 
+// Cambiar el nombre de este componente para evitar conflictos
+const DynamicFooter = () => {
+  const location = useLocation(); // Obtener la ubicación actual
+
+  const isFakePage = location.pathname === '/mapafake';
+
+  return (
+    <>
+      {isFakePage ? <FooterFake/> : <Footer />}
+    </>
+  );
+};
+
 // Componente principal
 const MainApp = () => {
   return (
     <>
       <Header /> {/* Header dinámico según la ruta */}
-        <Routes>
-          <Route path="/" element={<Landing />} />
+      <Routes>
+        <Route path="/" element={<Landing />} />
 
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/contacto" element={<Contacto />} />
-          <Route path="/recuperar-contraseña" element={<Recuperar />} /> 
-          <Route path="/cambiar-contraseña" element={<Cambiar />} /> 
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/contacto" element={<Contacto />} />
+        <Route path="/recuperar-contraseña" element={<Recuperar />} /> 
+        <Route path="/cambiar-contraseña" element={<Cambiar />} /> 
 
-          <Route path="/terminos" element={<Terminos />} />
-          <Route path="/acerca_de" element={<AcercaDe />} />
+        <Route path="/terminos" element={<Terminos />} />
+        <Route path="/acerca_de" element={<AcercaDe />} />
 
-          <Route path="/perfil" element={<Perfil />} /> 
-          <Route path="/user" element={<User />} /> 
-          <Route path="/historico" element={<Historico />} /> 
-          <Route path="/admin" element={<Admin />} /> 
-          <Route path="/enlazar" element={<Enlace />} /> 
+        <Route path="/perfil" element={<Perfil />} /> 
+        <Route path="/user" element={<User />} /> 
+        <Route path="/historico" element={<Historico />} /> 
+        <Route path="/admin" element={<Admin />} /> 
+        <Route path="/enlazar" element={<Enlace />} /> 
 
-
-          <Route path="/mapas" element={<Mapas />} /> 
-          <Route path="/mapafake" element={<MapasFake />} /> 
-
-        </Routes>
-      <Footer />
+        <Route path="/mapas" element={<Mapas />} /> 
+        <Route path="/mapafake" element={<MapasFake />} /> 
+      </Routes>
+      <DynamicFooter /> {/* Usamos el nuevo nombre del componente dinámico */}
     </>
   );
 };

@@ -35,6 +35,10 @@
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+.elegir-gas-fake select{
+    width: 80%;
+}
+
 .elegir-gas,.elegir-gas-fake select:hover {
     border-color: var(--principalClaro);
     box-shadow: 0 0 10px rgba(0, 204, 221, 0.5);
@@ -65,7 +69,7 @@
 }
 
 .elegir-gas-fake button{
-    width: 30%;
+    width: 80%;
 }
 
 .elegir-gas,.elegir-gas-fake button:hover {
