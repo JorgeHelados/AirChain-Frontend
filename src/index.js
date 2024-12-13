@@ -7,6 +7,7 @@ import './index.css';
 import HeaderGeneral from './Components/header';   
 import HeaderUser from './Components/header-user'; 
 import HeaderAdmin from './Components/header-admin'; 
+import HeaderFake from './Components/header-fake'; 
 import Footer from './Components/footer';
 
 import Landing from './Components/landing';
@@ -26,6 +27,7 @@ import Admin from './Components/admin';
 import Enlace from './Components/enlace_solicitud';
 
 import Mapas from './Components/mapas';
+import MapasFake from './Components/mapa-fake';
 
  
 import reportWebVitals from './reportWebVitals';
@@ -39,9 +41,11 @@ const Header = () => {
 
   const isAdminPage = location.pathname === '/admin';
 
+  const isFakePage = location.pathname === '/mapafake';
+
   return (
     <>
-      {isUserPage ? <HeaderUser /> : isAdminPage ? <HeaderAdmin/> : <HeaderGeneral />}
+      {isUserPage ? <HeaderUser /> : isAdminPage ? <HeaderAdmin/> : isFakePage ? <HeaderFake/> : <HeaderGeneral />}
     </>
   );
 };
@@ -71,6 +75,7 @@ const MainApp = () => {
 
 
           <Route path="/mapas" element={<Mapas />} /> 
+          <Route path="/mapafake" element={<MapasFake />} /> 
 
         </Routes>
       <Footer />
