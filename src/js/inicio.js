@@ -6,7 +6,7 @@
 //--------------------------------------------------
 
 // Base URL de la API para el servidor
-const apiBaseUrl = 'http://192.168.1.28:4000/';
+const apiBaseUrl = 'http://192.168.83.173:4000/';
 
 /**
  * Inicia sesión de un usuario mediante una solicitud GET a la API.

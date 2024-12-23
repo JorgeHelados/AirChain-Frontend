@@ -208,7 +208,7 @@ const Mapas = () => {
                 >
                     {mostrarEstaciones ? 'Ocultar Estaciones' : 'Mostrar Estaciones'}</button>
             </div>
-            <div id="map" style={{ height: '73vh' }}></div>
+            <div id="map" style={{ height: '83vh' }}></div>
         </div>
     );
 };

@@ -6,7 +6,7 @@
 //--------------------------------------------------
 
 // Base URL de la API para el servidor
-const apiBaseUrl = 'http://192.168.249.173:4000/';
+const apiBaseUrl = 'http://192.168.83.173:4000/';
 
 /**
  * Registra un nuevo usuario mediante una solicitud POST a la API.

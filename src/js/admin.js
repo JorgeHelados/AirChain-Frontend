@@ -1,5 +1,5 @@
 
-const API_URL = "http://192.168.1.28:4000";
+const API_URL = "http://192.168.83.173:4000";
 
 /**
  * @brief Calcula el tiempo que un sensor ha estado desconectado desde su última medida.

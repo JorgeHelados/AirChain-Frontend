@@ -249,7 +249,7 @@ function App() {
                     <p className='texto-promedio'>Promedio 8 horas</p>
                     <div className="smiley">{getSmileyIcon()}</div>
                     <p className="ppm">{averagePpm.toFixed(2)} ppm</p>
-                    <p className="texto-cuidado">Texto para tener cuidado de que has pasado por una zona bien pero ligeramente contaminado</p>
+                    {/* <p className="texto-cuidado">Texto para tener cuidado de que has pasado por una zona bien pero ligeramente contaminado</p> */}
                 </div>
             </div>
             <div>
