@@ -1,29 +1,71 @@
-.elegir-gas{
+.elegir-gas {
     width: 100%; 
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+    flex-direction: flex; /* Organiza los elementos en columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+    justify-content: center; /* Centra los elementos verticalmente */
+    gap: 10px; /* Espaciado entre los elementos */
     background-color: var(--gris);
-    padding: 5px 0;
+    padding: 10px 0; /* Ajusta el padding para más espacio */
 }
 
+.elegir-gas label, 
+.elegir-gas select, 
+.elegir-gas button {
+    width: auto; /* Ajusta el ancho al contenido */
+    text-align: center; /* Centra el texto dentro de los elementos */
+}
+
+/* Estilo para .elegir-gas-fake */
 .elegir-gas-fake {
     width: 100%; 
     display: flex;
     flex-direction: column; /* Cambiado para organizar los elementos en columna */
-    align-items: center; /* Centrar los elementos horizontalmente */
-    justify-content: center; /* Centrar los elementos verticalmente */
+    align-items: center; /* Centra los elementos horizontalmente */
+    justify-content: center; /* Centra los elementos verticalmente */
     gap: 10px;
     background-color: var(--gris);
-    padding: 5px 0;
+    padding: 10px 0; /* Ajusta el padding para más espacio */
 }
 
+.elegir-gas-fake select {
+    width: 80%; /* Ancho más grande para fake */
+    padding: 7px 15px;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 2px solid var(--blanco);
+    background: var(--gris);
+    color: var(--blanco);
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.elegir-gas-fake select:hover {
+    border-color: var(--principalClaro);
+    box-shadow: 0 0 10px rgba(0, 204, 221, 0.5);
+}
+
+.elegir-gas-fake button {
+    width: 80%; /* Botón más ancho en fake */
+    padding: 9px 15px;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--principal);
+    color: var(--blanco);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.elegir-gas-fake button:hover {
+    background-color: var(--secundario);
+}
 
 /* --------------- */
 /* SELECTOR DE GAS */
 /* --------------- */
-.elegir-gas,.elegir-gas-fake select{
+.elegir-gas select {
     width: 30%;
     padding: 7px 15px;
     font-size: 1rem;
@@ -35,11 +77,7 @@
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.elegir-gas-fake select{
-    width: 80%;
-}
-
-.elegir-gas,.elegir-gas-fake select:hover {
+.elegir-gas select:hover {
     border-color: var(--principalClaro);
     box-shadow: 0 0 10px rgba(0, 204, 221, 0.5);
 }
@@ -47,7 +85,7 @@
 /* ----- */
 /* TEXTO */
 /* ----- */
-.elegir-gas label{
+.elegir-gas label {
     font-size: 1.1rem;
     color: var(--blanco);
 }
@@ -55,7 +93,7 @@
 /* ----- */
 /* BOTON */
 /* ----- */
-.elegir-gas,.elegir-gas-fake button{
+.elegir-gas button {
     width: 15%;
     padding: 9px 15px;
     text-decoration: none;
@@ -68,11 +106,7 @@
     transition: background-color 0.3s ease;
 }
 
-.elegir-gas-fake button{
-    width: 80%;
-}
-
-.elegir-gas,.elegir-gas-fake button:hover {
+.elegir-gas button:hover {
     background-color: var(--secundario);
 }
   

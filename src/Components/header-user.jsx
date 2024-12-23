@@ -19,7 +19,7 @@ const Header_User = () => {
           <li><a href="/mapas">Mapas</a></li>
           <li><a href="/user">Mis mediciones</a></li>
           <li>
-            <button className="header-button" href="/perfil"><FaUser style={{ marginRight: '5px' }} /> Mi perfil</button>
+            <button className="header-button" ><FaUser style={{ marginRight: '5px' }} /><a href="/perfil">Mi perfil</a> </button>
           </li>
         </ul>
       </nav>
