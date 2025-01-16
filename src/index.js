@@ -20,6 +20,7 @@ import Cambiar from './Components/cambiar-contrasenya';
 
 import Terminos from './Components/terminos';
 import AcercaDe from './Components/acerca_de';
+import InfoAdicional from './Components/informacion_adicional';
 
 import User from './Components/user';
 import Historico from './Components/historico';
@@ -78,6 +79,7 @@ const MainApp = () => {
 
         <Route path="/terminos" element={<Terminos />} />
         <Route path="/acerca_de" element={<AcercaDe />} />
+        <Route path="/informacion_adicional" element={<InfoAdicional />} />
 
         <Route path="/perfil" element={<Perfil />} /> 
         <Route path="/user" element={<User />} /> 
